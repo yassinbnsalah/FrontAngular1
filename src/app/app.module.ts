@@ -9,6 +9,7 @@ import { AboutPageComponent } from './core/about-page/about-page.component';
 import { UniversitesListeComponent } from './core/universites-liste/universites-liste.component';
 import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
 import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddUniversiteComponent } from './core/add-universite/add-universite.com
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
