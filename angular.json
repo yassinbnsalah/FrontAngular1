@@ -58,12 +58,17 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "latest-angular:build",
+			      "port": 4201
+          },
           "configurations": {
             "production": {
               "browserTarget": "FrontOffice:build:production"
             },
             "development": {
-              "browserTarget": "FrontOffice:build:development"
+              "browserTarget": "FrontOffice:build:development" 
+              
             }
           },
           "defaultConfiguration": "development"
