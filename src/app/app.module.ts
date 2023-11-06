@@ -10,6 +10,7 @@ import { UniversitesListeComponent } from './core/universites-liste/universites-
 import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
 import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
 import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {FormsModule} from "@angular/forms";
     AddUniversiteComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule

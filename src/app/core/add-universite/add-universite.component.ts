@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { UniversiteService } from '../add-universite/service/universite.service';
-import { Universite } from '../../model/Universite';
+import { Universite } from 'src/app/model/Universite';
+import { UniversiteService } from 'src/app/service/universite.service';
+
 
 @Component({
   selector: 'app-add-universite',
@@ -10,9 +11,9 @@ import { Universite } from '../../model/Universite';
 export class AddUniversiteComponent {
   universite: Universite = new Universite();
 
-  constructor(private universiteService: UniversiteService) {}
+  constructor(private univerService : UniversiteService) {}
 
-  onSubmit() {
+/*  onSubmit() {
     /*this.universiteService.addUniversite(this.universite).subscribe(
       (response) => {
         console.log('University added:', response);
@@ -21,6 +22,6 @@ export class AddUniversiteComponent {
       (error) => {
         console.error('Error:', error);
       }
-    );*/
-  }
+    );
+  }*/
 }
