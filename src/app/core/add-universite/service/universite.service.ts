@@ -12,11 +12,22 @@ export class UniversiteService {
       'Content-Type': 'application/json'
     })
   }
-  private apiUrl = 'http://localhost:8081/UniversiteRestController/addUniversite';
+  private apiUrl = 'http://localhost:8080/addUniversite';
 
   constructor(private http: HttpClient) { }
 
   addUniversite(universite: Universite): Observable<Universite> {
-    return this.http.post<Universite>(`${this.apiUrl}`, universite,this.httpOptions);
-  }
+  return this.http.post<Universite>(`${this.apiUrl}`, universite,this.httpOptions);}
+
+  /*addUniversite(universiteData: FormData): Observable<Universite> {
+    const httpOptions = {
+      headers: new HttpHeaders(),
+    };
+
+    return this.http.post<Universite>(`${this.apiUrl}`, universiteData, httpOptions);
+  }*/
+
+
+
+
 }

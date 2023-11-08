@@ -3,4 +3,5 @@ export class Universite {
   nomUniversite!: string;
   adresse!: string;
   statuts!: string;
+  logo!:File
 }
