@@ -47,9 +47,29 @@
                         <input type="text" name="adresse" [(ngModel)]="universite.adresse" placeholder="Location" required  class="form-control form-control-lg form-control-a" >
                       </div>
                     </div>
+                    <div class="col-md-12 mb-3">
+                      <div class="form-group">
+                        <textarea name="description" [(ngModel)]="universite.description" placeholder="Description" required class="form-control form-control-lg form-control-a"></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input type="email" name="email" [(ngModel)]="universite.email" placeholder="email" required  class="form-control form-control-lg form-control-a" >
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input type="text" name="firstNameAgent" [(ngModel)]="universite.firstNameAgent" placeholder="First Name" required class="form-control form-control-lg form-control-a">
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <div class="form-group">
+                        <input type="text" name="lastNameAgent" [(ngModel)]="universite.lastNameAgent" placeholder="Last Name" required class="form-control form-control-lg form-control-a">
+                      </div>
+                    </div>
+
                     <div>
                       <input type="file" >
-
                     </div>
 
                     <div class="col-md-12 my-3">
