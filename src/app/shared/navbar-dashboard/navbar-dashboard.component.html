@@ -17,30 +17,19 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " routerLink="/about">About us</a>
+            <a class="nav-link " routerLink="/reservation/liste">Reservations</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link " routerLink="/universites">Universités</a>
+            <a class="nav-link " routerLink="#">Profile</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link " routerLink="/foyer">Foyer</a>
-          </li>
-
-          
-          <li class="nav-item">
-            <a class="nav-link " routerLink="/universite/add">Create New Universités</a>
-          </li>
+         
         </ul>
       </div>
       
-      <button *ngIf="Connected == false" 
-      class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" 
-      routerLink="/login">
-        SignIn/SignUp
-      </button>
-      <button *ngIf="Connected == true" 
+    
+      <button 
       class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" 
       routerLink="/reservation/liste">
         {{ CurrentUser.email}}

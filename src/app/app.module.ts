@@ -11,6 +11,10 @@ import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
 import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPageComponent } from './core/login-page/login-page.component';
+import { NavbarDashboardComponent } from './shared/navbar-dashboard/navbar-dashboard.component';
+import { ReservationListeComponent } from './core/reservation-liste/reservation-liste.component';
+import { ReservationDetailsComponent } from './core/reservation-details/reservation-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
     AboutPageComponent,
     UniversitesListeComponent,
     FoyerListeComponent,
-    AddUniversiteComponent
+    AddUniversiteComponent,
+    LoginPageComponent,
+    NavbarDashboardComponent,
+    ReservationListeComponent,
+    ReservationDetailsComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,7 +1,7 @@
 export class Universite {
   idUniversite!: number;
   nomUniversite!: string;
-  adresse!: string;
+  adress!: string;
   statuts!: string;
   logo!:File
 }
