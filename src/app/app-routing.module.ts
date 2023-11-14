@@ -6,6 +6,10 @@ import { AboutPageComponent } from './core/about-page/about-page.component';
 import { UniversitesListeComponent } from './core/universites-liste/universites-liste.component';
 import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
 import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
+import { ChambresComponent } from './core/Chambres/chambres/chambres.component';
+import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
+import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
+import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -13,7 +17,10 @@ const routes: Routes = [
   {path:"universites" , component:UniversitesListeComponent},
   {path:"universite/add" , component:AddUniversiteComponent},
   {path:"foyer" , component:FoyerListeComponent},
-
+  {path:"chambres" , component:ChambresComponent},
+  {path:"chambre-simple" , component:ChambreSimpleComponent},
+  {path:"chambre-double" , component:ChambreDoubleComponent},
+  {path:"chambre-triple" , component:ChambreTripleComponent},
 ];
 
 @NgModule({
