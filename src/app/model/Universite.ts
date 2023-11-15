@@ -7,5 +7,6 @@ export class Universite {
   email!:string;
   firstNameAgent!:string;
   lastNameAgent!:string;
-  logo!:File
+  //logo!:File
+  image?: File | null;
 }
