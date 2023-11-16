@@ -11,6 +11,7 @@ import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
 import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
+import { UniversiteDetailsComponent } from './core/universite-details/universite-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutPageComponent,
     UniversitesListeComponent,
     FoyerListeComponent,
-    AddUniversiteComponent
+    AddUniversiteComponent,
+    UniversiteDetailsComponent
   ],
   imports: [
     HttpClientModule,

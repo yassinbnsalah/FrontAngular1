@@ -9,5 +9,6 @@ export class Universite {
   email!:string;
   firstNameAgent!:string;
   lastNameAgent!:string;
-    image?: Image | null;
+  imagebyte!:string ;
+  image?: Image | null;
 }

@@ -13,11 +13,11 @@ export class UniversiteService {
             'Content-Type': 'application/json'
         })
     }
-    private apiUrl = 'http://localhost:8080/addUniversiteSans';
-    private apiUrl2 = 'http://localhost:8080/addUniversite';
-    private api = 'http://localhost:8080/uploadImg/';
+    private apiUrl = 'http://localhost:8081/UniversiteRestController/addUniversite';
+    //private apiUrl2 = 'http://localhost:8081/addUniversite';
+    private api = 'http://localhost:8081/UniversiteRestController/uploadImg/';
 
-    private baseUrl = 'http://localhost:8080/findAllU';
+    private baseUrl = 'http://localhost:8081/UniversiteRestController/findAll';
 
     constructor(private http: HttpClient) { }
 
@@ -35,7 +35,7 @@ export class UniversiteService {
             }
         });
 
-        return this.http.post(`${this.apiUrl2}`, formData);
+        return this.http.post(`${this.apiUrl}`, formData);
     }
 
   addUniversite(universite: Universite): Observable<Universite> {

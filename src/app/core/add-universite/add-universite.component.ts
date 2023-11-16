@@ -13,7 +13,7 @@ export class AddUniversiteComponent {
 
 
     universite: Universite = {
-        idUniversite: 0, // Set an appropriate initial value for idUniversite
+        idUniversite: 0,
         nomUniversite: '',
         adresse: '',
         statuts: '',
@@ -23,6 +23,7 @@ export class AddUniversiteComponent {
         lastNameAgent: '',
         // logo: null, // If you want to include logo
         image: null,
+        imagebyte:''
     };
 
     constructor(private universiteService: UniversiteService, private http :HttpClient) {}
@@ -33,7 +34,7 @@ export class AddUniversiteComponent {
     this.selectedFile = event.target.files[0];
     console.log(this.selectedFile);
   }
-  private api = 'http://localhost:8080/uploadImg/';
+
 
 uploadImage(idUniversite:any){
   if (this.selectedFile) {
@@ -50,39 +51,7 @@ uploadImage(idUniversite:any){
     )
   }}
 
-/*    onSubmit() {
-        const formData = new FormData();
-        Object.entries(this.universite).forEach(([key, value]) => {
-            if (key === 'image' && value) {
-                formData.append('image', value as Blob, (value as File).name);
-            } else {
-                formData.append(key, String(value));
-            }
-        });
 
-        this.universiteService.saveUniversity(formData).subscribe(
-            (response) => {
-                console.log('University added successfully', response);
-                // Handle success (e.g., navigate to another page)
-            },
-            (error) => {
-                console.error('Failed to add University with Image', error);
-                // Handle error appropriately
-            }
-        );
-    }*/
-   /* onSubmit() {
-        this.universiteService.addUniversityWithImage(this.universite).subscribe(
-            (response) => {
-                console.log('Response:', response);
-                // Handle success (e.g., navigate to another page)
-            },
-            (error) => {
-                console.error('Failed to add University with Image', error);
-                // Handle error appropriately
-            }
-        );
-    }*/
   onSubmit() {
     this.universiteService.addUniversite(this.universite).subscribe(
       (response) => {
