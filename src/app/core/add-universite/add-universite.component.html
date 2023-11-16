@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
-                        <input type="text" name="adress" [(ngModel)]="universite.adress" placeholder="Location" required  class="form-control form-control-lg form-control-a" >
+                        <input type="text" name="adresse" [(ngModel)]="universite.adresse" placeholder="Location" required  class="form-control form-control-lg form-control-a" >
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
@@ -69,7 +69,8 @@
                     </div>
 
                     <div>
-                      <input type="file" >
+                      <label for="image">Image:</label>
+                      <input type="file" id="image" (change)="onFileSelected($event)" required>
                     </div>
 
                     <div class="col-md-12 my-3">
