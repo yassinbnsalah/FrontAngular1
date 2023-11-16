@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Universite } from 'src/app/model/Universite';
 import { UniversiteService } from './service/universite.service';
-import {HttpHeaders} from "@angular/common/http"; // Adjust the import path if needed
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {map} from "rxjs"; // Adjust the import path if needed
 
 @Component({
   selector: 'app-add-universite',
@@ -9,22 +10,8 @@ import {HttpHeaders} from "@angular/common/http"; // Adjust the import path if n
   styleUrls: ['./add-universite.component.css']
 })
 export class AddUniversiteComponent {
-    /*  universite: Universite = new Universite();
-      selectedFile: File | null = null;
 
-        constructor(private universiteService: UniversiteService) {} // Fix the parameter name
 
-      onSubmit() {
-        this.universiteService.addUniversite(this.universite).subscribe(
-          (response) => {
-            console.log('University added:', response);
-            this.universite = new Universite();
-          },
-          (error) => {
-            console.error('Error:', error);
-          }
-        );
-      }*/
     universite: Universite = {
         idUniversite: 0, // Set an appropriate initial value for idUniversite
         nomUniversite: '',
@@ -38,11 +25,30 @@ export class AddUniversiteComponent {
         image: null,
     };
 
-    constructor(private universiteService: UniversiteService) {}
+    constructor(private universiteService: UniversiteService, private http :HttpClient) {}
 
-    onFileChange(event: any) {
-        this.universite.image = event.target.files[0] || null;
-    }
+  selectedFile: File | null = null;
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+  }
+  private api = 'http://localhost:8080/uploadImg/';
+
+uploadImage(idUniversite:any){
+  if (this.selectedFile) {
+    console.log("ENTER");
+    let formData = new FormData();
+    formData.append('file', this.selectedFile,this.selectedFile.name);
+    formData.forEach((value, key) => {
+      console.log(key, value);
+    });
+    this.universiteService.uploadImg(formData,idUniversite).subscribe(
+      (data) =>{
+        console.log(data);
+      }
+    )
+  }}
 
 /*    onSubmit() {
         const formData = new FormData();
@@ -65,7 +71,7 @@ export class AddUniversiteComponent {
             }
         );
     }*/
-    onSubmit() {
+   /* onSubmit() {
         this.universiteService.addUniversityWithImage(this.universite).subscribe(
             (response) => {
                 console.log('Response:', response);
@@ -76,8 +82,18 @@ export class AddUniversiteComponent {
                 // Handle error appropriately
             }
         );
-    }
-
+    }*/
+  onSubmit() {
+    this.universiteService.addUniversite(this.universite).subscribe(
+      (response) => {
+        console.log('University added:', response);
+        this.uploadImage(response.idUniversite)
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
+    );
+  }
 }
 
 

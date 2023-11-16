@@ -1,1 +1,16 @@
 <app-navbar></app-navbar>
+
+<div *ngFor="let universite of universites">
+  <h2>{{ universite.nomUniversite }}</h2>
+  <p>{{ universite.adresse }}</p>
+  <p>{{ universite.description }}</p>
+  <p>{{ universite.statuts }}</p>
+  <p>{{ universite.email }}</p>
+  <p>{{ universite.firstNameAgent }}</p>
+  <p>{{ universite.lastNameAgent }}</p>
+  <img [src]="'data:' + universite.image?.image_type + ';base64,' + universite.image?.universite_image" alt="Universite Image">
+  <hr/>
+</div>
+
+
+

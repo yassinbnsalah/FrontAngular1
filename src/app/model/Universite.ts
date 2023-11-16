@@ -1,3 +1,5 @@
+import {Image} from "./Image";
+
 export class Universite {
   idUniversite!: number;
   nomUniversite!: string;
@@ -7,6 +9,5 @@ export class Universite {
   email!:string;
   firstNameAgent!:string;
   lastNameAgent!:string;
-  //logo!:File
-  image?: File | null;
+    image?: Image | null;
 }
