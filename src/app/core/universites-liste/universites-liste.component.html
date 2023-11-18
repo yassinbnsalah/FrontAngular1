@@ -62,7 +62,7 @@
                   <div class="price-box d-flex">
                     <span class="price-a">Adresse : {{universite.adresse}}</span>
                   </div>
-                  <a href="property-single.html" class="link-a">See more
+                  <a [routerLink]="['/universiteDetail', universite.idUniversite]" class="link-a">See more
                     <span class="bi bi-chevron-right"></span>
                   </a>
                 </div>
@@ -72,7 +72,6 @@
                       <h4 class="card-info-title">Email Agent :</h4>
                       <span>
                                 <a href="mailto:{{universite.email}}">{{universite.email}}</a>
-
                         </span>
                     </li>
 

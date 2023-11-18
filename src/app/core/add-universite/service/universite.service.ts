@@ -14,10 +14,10 @@ export class UniversiteService {
         })
     }
     private apiUrl = 'http://localhost:8081/UniversiteRestController/addUniversite';
-    //private apiUrl2 = 'http://localhost:8081/addUniversite';
     private api = 'http://localhost:8081/UniversiteRestController/uploadImg/';
-
     private baseUrl = 'http://localhost:8081/UniversiteRestController/findAll';
+    private baseUrl1 = 'http://localhost:8081/UniversiteRestController/findById/';
+    private baseUrl2 = 'http://localhost:8081/UniversiteRestController/acceptedUniversite';
 
     constructor(private http: HttpClient) { }
 
@@ -45,6 +45,12 @@ export class UniversiteService {
     return this.http.get<Universite[]>(this.baseUrl);
   }
 
+  findUniversiteAccepte(): Observable<Universite[]> {
+    return this.http.get<Universite[]>(this.baseUrl2);
+  }
+  getUniversiteById(id:number):Observable<Universite>{
+    return this.http.get<Universite>(this.baseUrl1+id);
+  }
 
 }
 
