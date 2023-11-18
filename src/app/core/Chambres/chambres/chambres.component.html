@@ -1,91 +1,95 @@
+<!-- chambres.component.html -->
 <app-navbar></app-navbar>
 
-    <!-- ======= Intro Single ======= -->
 <section class="intro-single">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-lg-8">
-          <div class="title-single-box">
-            <h1 class="title-single">Nos Chambres Incroyables</h1>
-           
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Nos Chambres Incroyables</h1>
+          <form class="form-inline my-2 my-lg-0" (submit)="searchChambers()">
+            <input class="form-control mr-sm-2" type="search" placeholder="Entrez le nom du Bloc" aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm">
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+          </form>
         </div>
-       
       </div>
     </div>
-  </section><!-- End Intro Single-->
-  <!-- =======  Blog Grid ======= -->
-    <section class="news-grid grid">
-      <div class="container">
-        <div class="row">
-          
-          
-          
-          <div class="col-md-4">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="assets/img/post-4.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Reserver</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                        <a routerLink="/chambre-simple">Chambre Simple
-                        </a>
-                    </h2>
-                  </div>
-                 
-                </div>
-              </div>
-            </div>
+  </div>
+</section>
+
+ <!-- =======  Blog Grid ======= -->
+ <section class="news-grid grid">
+  <div class="container">
+    <div class="row">
+      
+      
+      
+      <div class="col-md-4">
+        <div class="card-box-b card-shadow news-box">
+          <div class="img-box-b" [hidden]="!showHiddenSection">
+            <img src="assets/img/post-4.jpg" alt="" class="img-b img-fluid">
           </div>
-          <div class="col-md-4">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="assets/img/post-5.jpg" alt="" class="img-b img-fluid">
+          <div class="card-overlay">
+            <div class="card-header-b">
+              <div class="card-category-b">
+                <a href="#" class="category-b">Reserver</a>
               </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Reserver</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a routerLink="/chambre-double">Chambre Double
-                        </a>
-                    </h2>
-                  </div>
-                  
-                </div>
+              <div class="card-title-b">
+                <h2 class="title-2">
+                    <a routerLink="/chambre-simple">Chambre Simple
+                    </a>
+                </h2>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card-box-b card-shadow news-box">
-              <div class="img-box-b">
-                <img src="assets/img/post-6.jpg" alt="" class="img-b img-fluid">
-              </div>
-              <div class="card-overlay">
-                <div class="card-header-b">
-                  <div class="card-category-b">
-                    <a href="#" class="category-b">Reserver</a>
-                  </div>
-                  <div class="card-title-b">
-                    <h2 class="title-2">
-                      <a routerLink="/chambre-triple">Chambre Triple
-                       </a>
-                    </h2>
-                  </div>
-                 
-                </div>
-              </div>
+             
             </div>
           </div>
         </div>
-        
-   
       </div>
-    </section><!-- End Blog Grid-->
+      <div class="col-md-4">
+        <div class="card-box-b card-shadow news-box">
+          <div class="img-box-b" [hidden]="!showHiddenSection">
+            <img src="assets/img/post-5.jpg" alt="" class="img-b img-fluid">
+          </div>
+          <div class="card-overlay">
+            <div class="card-header-b">
+              <div class="card-category-b">
+                <a href="#" class="category-b">Reserver</a>
+              </div>
+              <div class="card-title-b">
+                <h2 class="title-2">
+                  <a routerLink="/chambre-double">Chambre Double
+                    </a>
+                </h2>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-box-b card-shadow news-box">
+          <div class="img-box-b" [hidden]="!showHiddenSection">
+            <img src="assets/img/post-6.jpg" alt="" class="img-b img-fluid">
+          </div>
+          <div class="card-overlay">
+            <div class="card-header-b">
+              <div class="card-category-b">
+                <a href="#" class="category-b">Reserver</a>
+              </div>
+              <div class="card-title-b">
+                <h2 class="title-2">
+                  <a routerLink="/chambre-triple">Chambre Triple
+                   </a>
+                </h2>
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+</section><!-- End Blog Grid-->

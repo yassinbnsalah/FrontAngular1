@@ -27,7 +27,6 @@ const routes: Routes = [
   {path:"chambre-simple" , component:ChambreSimpleComponent},
   {path:"chambre-double" , component:ChambreDoubleComponent},
   {path:"chambre-triple" , component:ChambreTripleComponent},
-
 ];
 
 @NgModule({

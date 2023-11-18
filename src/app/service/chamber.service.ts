@@ -36,4 +36,27 @@ getChamberByReservationID(reservationID: string): Observable<Chamber> {
   const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/findChamberByReservationID/${reservationID}`;
   return this.http.get<Chamber>(url);
 }
+getChambresByNomBloc(nomBloc: string): Observable<Chamber[]> {
+  return this.http.get<Chamber[]>(`${environment.baseURL}${environment.ChamberBackendAPIS}/getChamberList/${nomBloc}`, this.httpOptions);
+}
+ // méthode pour le service nbChambreParTypeEtBloc
+ getNumberOfChambersByTypeAndBloc(type: string, idBloc: number): Observable<number> {
+  const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/nbChambreParTypeEtBloc/${type}/${idBloc}`;
+  return this.http.get<number>(url, this.httpOptions);
+}
+
+// méthode pour le service getChambresNonReserveParNomFoyerEtTypeChambre
+getNonReservedChambersByNomFoyerAndTypeChambre(nomFoyer: string, type: string): Observable<Chamber[]> {
+  const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/chamberListNonReserver/${type}/${nomFoyer}`;
+  return this.http.get<Chamber[]>(url, this.httpOptions);
+}
+getBlocNameById(idBloc: number): Observable<string> {
+  const url = `${environment.baseURL}/api/blocs/getBlocNameById/${idBloc}`;
+  return this.http.get<string>(url);
+}
+ // méthode pour récupérer le nombre de chambres disponibles
+ getNbChambreParTypeEtBloc(type: string, idBloc: number): Observable<number> {
+  const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/nbChambreParTypeEtBloc/${type}/${idBloc}`;
+  return this.http.get<number>(url, this.httpOptions);
+}
 }

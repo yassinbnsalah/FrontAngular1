@@ -9,40 +9,23 @@ import { ChamberService } from 'src/app/service/chamber.service';
   styleUrls: ['./chambre-simple.component.css']
 })
 export class ChambreSimpleComponent implements OnInit {
-  chamber: Chamber | undefined;
+  nbChambresDisponibles: number = 0;
 
-  constructor(
-    private chamberService: ChamberService,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private chamberService: ChamberService) {}
 
-  ngOnInit(): void {
-    // Extract chamber ID from the route parameters
-    const chamberId = this.route.snapshot.paramMap.get('id');
-
-    if (chamberId) {
-      // If chamber ID is available, fetch chamber details
-      this.getChamberDetails(chamberId);
-    } else {
-      // Handle the case when there's no chamber ID (optional)
-      console.error('No chamber ID provided');
-    }
+  ngOnInit() {
+    this.loadNbChambresDisponibles();
   }
 
-  getChamberDetails(id: any) {
-    this.chamberService.getChamberByID(id).subscribe(
-      (data: Chamber) => {
-        this.chamber = data;
+  private loadNbChambresDisponibles() {
+    this.chamberService.getNbChambreParTypeEtBloc('Simple', 1).subscribe(
+      (data) => {
         console.log(data);
+        this.nbChambresDisponibles = data;
       },
       (error) => {
-        console.error('Error fetching chamber data: ', error);
+        console.error(error);
       }
     );
-  }
-
-  GoToChamberDetails(id: any) {
-    this.router.navigate(['chamber/', id]);
   }
 }
