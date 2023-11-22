@@ -16,11 +16,14 @@
       </div>
     </div>
   </div>
+  <div class="alert alert-success " *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
 </section>
 
  <!-- =======  Blog Grid ======= -->
- <section class="news-grid grid">
-  <div class="container">
+ <div class="container" *ngIf="showHiddenSection">
+  <section class="news-grid grid" *ngIf="chambers.length > 0">
     <div class="row">
       
       
@@ -32,11 +35,10 @@
           </div>
           <div class="card-overlay">
             <div class="card-header-b">
-              <div class="card-category-b">
-                <a href="#" class="category-b">Reserver</a>
-              </div>
+              
               <div class="card-title-b">
                 <h2 class="title-2">
+                  <p>Le nbre de chambre disponible: </p>
                     <a routerLink="/chambre-simple">Chambre Simple
                     </a>
                 </h2>
@@ -53,9 +55,7 @@
           </div>
           <div class="card-overlay">
             <div class="card-header-b">
-              <div class="card-category-b">
-                <a href="#" class="category-b">Reserver</a>
-              </div>
+             
               <div class="card-title-b">
                 <h2 class="title-2">
                   <a routerLink="/chambre-double">Chambre Double
@@ -74,9 +74,7 @@
           </div>
           <div class="card-overlay">
             <div class="card-header-b">
-              <div class="card-category-b">
-                <a href="#" class="category-b">Reserver</a>
-              </div>
+            
               <div class="card-title-b">
                 <h2 class="title-2">
                   <a routerLink="/chambre-triple">Chambre Triple
@@ -91,5 +89,8 @@
     </div>
     
 
-  </div>
-</section><!-- End Blog Grid-->
+</section>
+
+
+
+<!-- End Blog Grid-->

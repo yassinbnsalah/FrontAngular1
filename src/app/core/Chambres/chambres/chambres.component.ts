@@ -1,3 +1,5 @@
+// chambres.component.ts
+
 import { Component, OnInit } from '@angular/core';
 import { Chamber } from 'src/app/model/Chamber';
 import { ChamberService } from 'src/app/service/chamber.service';
@@ -11,6 +13,7 @@ export class ChambresComponent implements OnInit {
   showHiddenSection: boolean = false;
   searchTerm: string = '';
   chambers: Chamber[] = [];
+  errorMessage: string = '';
 
   constructor(public chamberService: ChamberService) {}
 
@@ -22,22 +25,41 @@ export class ChambresComponent implements OnInit {
     this.showHiddenSection = true;
   }
  
-  
   searchChambers() {
-    console.log("recherche effectué");
-    this.chamberService.getChambresByNomBloc(this.searchTerm).subscribe(
-      (data) => {
-        console.log(data);
-        this.chambers = data;
+    if (!this.searchTerm) {
+      this.errorMessage = 'Veuillez entrer le nom du Bloc.';
+      this.showHiddenSection = false;
+      return;
+    }
+
+    this.chamberService.checkBlocExistence(this.searchTerm).subscribe(
+      (blocExists) => {
+        if (blocExists) {
+          // Reset error message when the bloc is found
+          this.errorMessage = '';
+          
+          this.chamberService.getChambresByNomBloc(this.searchTerm).subscribe(
+            (data) => {
+              console.log(data);
+              this.chambers = data;
+              this.showHiddenSection = this.chambers.length > 0;
+            },
+            (error) => {
+              console.error(error);
+              this.showHiddenSection = false;
+            }
+          );
+        } else {
+          this.showHiddenSection = false;
+          this.errorMessage = `Le bloc "${this.searchTerm}" n'existe pas.`;
+        }
       },
       (error) => {
         console.error(error);
+        this.showHiddenSection = false;
       }
     );
-    this.showHiddenSection = true;
   }
-
- 
 
   private loadChambers() {
     this.chamberService.getAllChamber().subscribe(
@@ -53,7 +75,6 @@ export class ChambresComponent implements OnInit {
             );
           }
         });
-        
       },
       (error) => {
         console.error(error);

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Chamber } from '../model/Chamber';
 import { environment } from 'src/environments/environment.development';
+import { TypeChamber } from '../model/TypeChamber ';
 
 @Injectable({
   providedIn: 'root'
@@ -59,4 +60,14 @@ getBlocNameById(idBloc: number): Observable<string> {
   const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/nbChambreParTypeEtBloc/${type}/${idBloc}`;
   return this.http.get<number>(url, this.httpOptions);
 }
+getChambersByType(type: TypeChamber): Observable<Chamber[]> {
+  const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/getChambersByType/${type}`;
+  return this.http.get<Chamber[]>(url, this.httpOptions);
+}
+//method to check if the bloc exists
+  checkBlocExistence(blocName: string): Observable<boolean> {
+    const url = `${environment.baseURL}${environment.BlocBackendAPIS}/checkBlocExistence/${blocName}`;
+    return this.http.get<boolean>(url, this.httpOptions);
+  }
+
 }

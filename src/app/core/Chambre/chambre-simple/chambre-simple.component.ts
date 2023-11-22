@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Chamber } from 'src/app/model/Chamber';
+import { TypeChamber } from 'src/app/model/TypeChamber ';
 import { ChamberService } from 'src/app/service/chamber.service';
 
 @Component({
@@ -9,19 +10,20 @@ import { ChamberService } from 'src/app/service/chamber.service';
   styleUrls: ['./chambre-simple.component.css']
 })
 export class ChambreSimpleComponent implements OnInit {
-  nbChambresDisponibles: number = 0;
+  chambres: Chamber[] = [];
 
   constructor(private chamberService: ChamberService) {}
 
   ngOnInit() {
-    this.loadNbChambresDisponibles();
+    this.loadChambres();
   }
 
-  private loadNbChambresDisponibles() {
-    this.chamberService.getNbChambreParTypeEtBloc('Simple', 1).subscribe(
+  private loadChambres() {
+  
+    this.chamberService.getChambersByType(TypeChamber.Simple).subscribe(
       (data) => {
         console.log(data);
-        this.nbChambresDisponibles = data;
+        this.chambres = data;
       },
       (error) => {
         console.error(error);

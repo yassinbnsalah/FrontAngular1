@@ -1,4 +1,5 @@
 <app-navbar></app-navbar>
+
 <!-- ======= Intro Single ======= -->
 <section class="intro-single">
   <div class="container">
@@ -6,7 +7,6 @@
       <div class="col-md-12 col-lg-8">
         <div class="title-single-box">
           <h1 class="title-single">Chambre Double</h1>
-         
         </div>
       </div>
     </div>
@@ -17,27 +17,17 @@
 <section class="news-single nav-arrow-b">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
-        <div class="news-img-box">
-          <img src="assets/img/post-single-1.jpg" alt="" class="img-fluid">
+      <div class="col-md-12" *ngFor="let chambre of chambres">
+        <div class="card border-info mb-3" style="max-width: 18rem;">
+          <div class="card-header">{{ chambre.typeC }}</div>
+          <div class="card-body text-info">
+            <h5 class="card-title">Chambre {{ chambre.numerochamber }}</h5>
+            <p class="card-text">{{ chambre.description }}</p>
+            <p class="card-text">Etat: {{ chambre.etat }}</p>
+            <!-- Add more details as needed -->
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-12 section-t3">
-    <div class="title-box-d">
-      <h3 class="title-d">Description</h3>
-    </div>
-  </div>
-  <div class="">
-    <p>La chambre double est conçue pour accueillir deux personnes et est équipée d'un grand lit ou de lits jumeaux. Elle offre davantage d'espace que la chambre simple et est parfaite pour les couples ou les amis voyageant ensemble. Les chambres doubles comprennent souvent des commodités supplémentaires pour garantir un séjour confortable à deux.</p>
-</div>
-<div class="col-md-12 section-t3">
-<div class="title-box-d">
-  <h3 class="title-d">Nombre de chambre double disponible</h3>
-
-</div>
-<p class="title-single"> {{ nbChambresDisponibles }}</p>
-</div>
-
-  </section><!-- End Blog Single -->
+</section><!-- End Blog Single -->
