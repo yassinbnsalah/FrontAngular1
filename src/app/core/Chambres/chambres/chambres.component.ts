@@ -1,6 +1,7 @@
 // chambres.component.ts
 
 import { Component, OnInit } from '@angular/core';
+import { Bloc } from 'src/app/model/Bloc';
 import { Chamber } from 'src/app/model/Chamber';
 import { ChamberService } from 'src/app/service/chamber.service';
 
@@ -15,10 +16,13 @@ export class ChambresComponent implements OnInit {
   chambers: Chamber[] = [];
   errorMessage: string = '';
 
+
+
   constructor(public chamberService: ChamberService) {}
 
   ngOnInit() {
     this.loadChambers();
+
   }
 
   toggleHiddenSection() {

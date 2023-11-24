@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Chamber } from 'src/app/model/Chamber';
 import { TypeChamber } from 'src/app/model/TypeChamber ';
+
 import { ChamberService } from 'src/app/service/chamber.service';
 
 @Component({
@@ -19,7 +19,6 @@ export class ChambreSimpleComponent implements OnInit {
   }
 
   private loadChambres() {
-  
     this.chamberService.getChambersByType(TypeChamber.Simple).subscribe(
       (data) => {
         console.log(data);
@@ -30,4 +29,6 @@ export class ChambreSimpleComponent implements OnInit {
       }
     );
   }
+ 
+  
 }
