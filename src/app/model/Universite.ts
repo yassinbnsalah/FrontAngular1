@@ -10,5 +10,5 @@ export class Universite {
   firstNameAgent!:string;
   lastNameAgent!:string;
   imagebyte!:string ;
-    image?: Image | null;
+  image?: Image | null;
 }

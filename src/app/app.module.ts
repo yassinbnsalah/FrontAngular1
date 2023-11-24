@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './core/home-page/home-page.component';
@@ -15,6 +15,9 @@ import { LoginPageComponent } from './core/login-page/login-page.component';
 import { NavbarDashboardComponent } from './shared/navbar-dashboard/navbar-dashboard.component';
 import { ReservationListeComponent } from './core/reservation-liste/reservation-liste.component';
 import { ReservationDetailsComponent } from './core/reservation-details/reservation-details.component';
+import { UniversiteDetailsComponent } from './core/universite-details/universite-details.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { CreateDemandeComponent } from './core/create-demande/create-demande.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +31,13 @@ import { ReservationDetailsComponent } from './core/reservation-details/reservat
     LoginPageComponent,
     NavbarDashboardComponent,
     ReservationListeComponent,
-    ReservationDetailsComponent
+    ReservationDetailsComponent,
+    UniversiteDetailsComponent,
+    NotFoundComponent,
+    CreateDemandeComponent,
   ],
   imports: [
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

@@ -9,6 +9,8 @@ import { AddUniversiteComponent } from './core/add-universite/add-universite.com
 import { LoginPageComponent } from './core/login-page/login-page.component';
 import { ReservationListeComponent } from './core/reservation-liste/reservation-liste.component';
 import { ReservationDetailsComponent } from './core/reservation-details/reservation-details.component';
+import {UniversiteDetailsComponent} from "./core/universite-details/universite-details.component";
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -18,8 +20,9 @@ const routes: Routes = [
   {path:"reservation/liste" , component:ReservationListeComponent},
   {path:"reservation/:id" , component:ReservationDetailsComponent},
   {path:"foyer" , component:FoyerListeComponent},
-  {path:"login" , component:LoginPageComponent}
-
+  {path:"login" , component:LoginPageComponent},
+  {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
+  {path:"not", component:NotFoundComponent}
 ];
 
 @NgModule({

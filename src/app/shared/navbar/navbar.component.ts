@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StorageService } from 'src/app/AuthServices/storage.service';
 
 @Component({
@@ -9,7 +10,14 @@ import { StorageService } from 'src/app/AuthServices/storage.service';
 export class NavbarComponent implements OnInit{
   Connected = false; 
   CurrentUser : any; 
-  constructor(private storage : StorageService){}
+  home=true ;
+  aboutus = false ; 
+  universite = false ;
+  foyer = false ; 
+  newUni = false; 
+  constructor(private storage : StorageService,private router: Router){
+    this.urlActive();
+  }
   ngOnInit(): void {
     console.log(this.storage.isLoggedIn());
     
@@ -19,6 +27,10 @@ export class NavbarComponent implements OnInit{
       console.log(this.CurrentUser);
       
     }
+  }
+
+  urlActive(){
+    console.log("hey here ", this.router.url);
   }
  
 }

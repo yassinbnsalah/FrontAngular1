@@ -1,0 +1,92 @@
+<section class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 section-t8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title-single">Creation du nouvelle demande</h1>
+                        <form method="post" role="form" class="php-email-form" [formGroup]="demande">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <input type="text" name="name" formControlName ="name"
+                                            class="form-control form-control-lg form-control-a"
+                                            placeholder="Nom" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <input type="text" name="prename"  formControlName ="prename"
+                                            class="form-control form-control-lg form-control-a"
+                                            placeholder="prename" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <input name="email" type="email"  formControlName ="email"
+                                            class="form-control form-control-lg form-control-a"
+                                            placeholder="Email" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <input name="cin" type="text"  formControlName="cin"
+                                            class="form-control form-control-lg form-control-a"
+                                            placeholder="cin" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <select  formControlName="ecole"
+                                            class="form-control form-control-lg form-control-a">
+                                            <option> Select Universite </option>
+                                            <option *ngFor="let universite of universites"> {{universite.nomUniversite}} </option>
+                                        
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <select formControlName="typeChamber"
+                                            class="form-control form-control-lg form-control-a">
+                                            <option> Select Type Chamber</option>
+                                            <option> Simple </option>
+                                            <option> Double </option>
+                                            <option> Triple </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <select formControlName="AnneeUniversitaire"
+                                            class="form-control form-control-lg form-control-a">
+                                            <option> Select Année universitaire</option>
+                                            <option> 2023/2024 </option>
+                                            <option> 2024/2025 </option>
+                                            <option> 2025/2026 </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                    <div class="form-check form-switch">
+                                        <input formControlName="autoRenewed" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Renouvelement automatique </label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 text-center">
+                                    <button (click)="saveDemande()" type="submit" class="btn btn-a">Envoyer</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Contact Single-->

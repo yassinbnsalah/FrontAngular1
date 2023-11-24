@@ -4,6 +4,8 @@ export const environment = {
     baseURL : "http://localhost:8081/",
     ChamberBackendAPIS : "ChamberRestController",
     AuthentificationBackendURL : "auth/login",
-    RegistrationBackendURL : "auth/register"
+    RegistrationBackendURL : "auth/register",
+    UserBackendURL : "UserRestController",
+    DemandeBackendURL : "DemandeRestController"
 };
 

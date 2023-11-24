@@ -18,7 +18,7 @@ export class UniversitesListeComponent implements OnInit{
   }
 
   loadUniversites(): void {
-    this.universiteService.findUniversite().subscribe(
+    this.universiteService.findUniversiteAccepte().subscribe(
       (data) => {
         this.universites = data;
         console.log(data);

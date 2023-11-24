@@ -9,16 +9,19 @@ import { environment } from 'src/environments/environment.development';
 })
 export class UniversiteService {
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
-  private apiUrl = 'http://localhost:8080/addUniversiteSans';
-  private apiUrl2 = 'http://localhost:8080/addUniversite';
-  private api = 'http://localhost:8081/UniversiteRestController/uploadImg/';
+    httpOptions = {
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json'
+        })
+    }
+    private apiUrl = 'http://localhost:8081/UniversiteRestController/addUniversite';
+    private api = 'http://localhost:8081/UniversiteRestController/uploadImg/';
+    private baseUrl = 'http://localhost:8081/UniversiteRestController/findAll';
+    private baseUrl1 = 'http://localhost:8081/UniversiteRestController/findById/';
+    private baseUrl2 = 'http://localhost:8081/UniversiteRestController/acceptedUniversite';
 
-  private baseUrl = 'http://localhost:8080/findAllU';
+   
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -38,6 +41,12 @@ export class UniversiteService {
     return this.http.get<Universite[]>(environment.baseURL + environment.UniversiteBackendAPIS + "/findAll");
   }
 
+  findUniversiteAccepte(): Observable<Universite[]> {
+    return this.http.get<Universite[]>(this.baseUrl2);
+  }
+  getUniversiteById(id:number):Observable<Universite>{
+    return this.http.get<Universite>(this.baseUrl1+id);
+  }
 
 }
 
