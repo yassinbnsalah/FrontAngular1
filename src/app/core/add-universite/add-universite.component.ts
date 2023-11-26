@@ -1,32 +1,44 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Universite } from 'src/app/model/Universite';
 import { UniversiteService } from './service/universite.service';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {map} from "rxjs"; // Adjust the import path if needed
+import { ToastrService } from 'ngx-toastr';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-add-universite',
   templateUrl: './add-universite.component.html',
   styleUrls: ['./add-universite.component.css']
 })
-export class AddUniversiteComponent {
+export class AddUniversiteComponent implements OnInit{
+
+  universiteForm!: FormGroup;
 
 
-    universite: Universite = {
-        idUniversite: 0,
-        nomUniversite: '',
-        adresse: '',
-        statuts: '',
-        description: '',
-        email: '',
-        firstNameAgent: '',
-        lastNameAgent: '',
-        // logo: null, // If you want to include logo
-        image: null,
-        imagebyte:''
-    };
+  constructor(
+    private formBuilder: FormBuilder,
+    private universiteService: UniversiteService,
+    private http: HttpClient,
+    private toastr: ToastrService
+  ) {}
 
-    constructor(private universiteService: UniversiteService, private http :HttpClient) {}
+  ngOnInit() {
+    this.universiteForm = this.formBuilder.group({
+      nomUniversite: [''],
+      adresse: [''],
+      statuts: [''],
+      description: [''],
+      email: [''],
+      firstNameAgent: [''],
+      lastNameAgent: [''],
+    });
+    const statuts = this.universiteForm.get('statuts');
+    if (statuts) {
+      statuts.setValue("En attente");
+    }
+  }
+
 
   selectedFile: File | null = null;
 
@@ -51,19 +63,20 @@ uploadImage(idUniversite:any){
     )
   }}
 
-
   onSubmit() {
-    this.universiteService.addUniversite(this.universite).subscribe(
-      (response) => {
-        console.log('University added:', response);
-        this.uploadImage(response.idUniversite)
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
+
+      const formData = this.universiteForm.value;
+      console.log('Form submitted:', formData);
+
+      this.universiteService.addUniversite(formData).subscribe(
+        (data)=>{
+          console.log('University added:', data);
+          this.uploadImage(data.idUniversite);
+        }
+      );
   }
 }
+
 
 
 

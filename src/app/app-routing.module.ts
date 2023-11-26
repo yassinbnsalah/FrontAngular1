@@ -7,6 +7,7 @@ import { UniversitesListeComponent } from './core/universites-liste/universites-
 import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
 import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
 import {UniversiteDetailsComponent} from "./core/universite-details/universite-details.component";
+import {MapComponent} from "./core/map/map.component";
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -14,8 +15,8 @@ const routes: Routes = [
   {path:"universites" , component:UniversitesListeComponent},
   {path:"universite/add" , component:AddUniversiteComponent},
   {path:"foyer" , component:FoyerListeComponent},
-  {path:"universiteDetail/:id", component:UniversiteDetailsComponent}
-
+  {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
+  {path:"map" , component:MapComponent}
 ];
 
 @NgModule({
