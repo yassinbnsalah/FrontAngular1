@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Chamber } from '../model/Chamber';
 import { environment } from 'src/environments/environment.development';
 import { TypeChamber } from '../model/TypeChamber ';
+import { Bloc } from '../model/Bloc';
 
 @Injectable({
   providedIn: 'root'
@@ -87,7 +88,14 @@ getChambersByType(type: TypeChamber): Observable<Chamber[]> {
   
       return this.http.post(`${this.apiUrl}`, formData);
   }
-
+  getAllBlocs(): Observable<Bloc[]> {
+    return this.http.get<Bloc[]>(`${environment.baseURL}${environment.BlocBackendAPIS}/findAll`, this.httpOptions);
+  }
   
+  getChambersByTypeAndBloc(type: TypeChamber, blocName: string): Observable<Chamber[]> {
+    const url = `${environment.baseURL}${environment.ChamberBackendAPIS}/byTypeAndBloc?type=${type}&blocName=${blocName}`;
+    return this.http.get<Chamber[]>(url, this.httpOptions);
+  }
+
   }
 

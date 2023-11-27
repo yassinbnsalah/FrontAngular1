@@ -15,13 +15,14 @@ export class ChambresComponent implements OnInit {
   searchTerm: string = '';
   chambers: Chamber[] = [];
   errorMessage: string = '';
-
-
+  selectedBloc: string = '';
+  blocs: Bloc[] = []; 
 
   constructor(public chamberService: ChamberService) {}
 
   ngOnInit() {
     this.loadChambers();
+    this.loadBlocs(); 
 
   }
 
@@ -30,33 +31,17 @@ export class ChambresComponent implements OnInit {
   }
  
   searchChambers() {
-    if (!this.searchTerm) {
-      this.errorMessage = 'Veuillez entrer le nom du Bloc.';
+    if (!this.selectedBloc) {
+      this.errorMessage = 'Veuillez choisir un Bloc.';
       this.showHiddenSection = false;
       return;
     }
-
-    this.chamberService.checkBlocExistence(this.searchTerm).subscribe(
-      (blocExists) => {
-        if (blocExists) {
-          // Reset error message when the bloc is found
-          this.errorMessage = '';
-          
-          this.chamberService.getChambresByNomBloc(this.searchTerm).subscribe(
-            (data) => {
-              console.log(data);
-              this.chambers = data;
-              this.showHiddenSection = this.chambers.length > 0;
-            },
-            (error) => {
-              console.error(error);
-              this.showHiddenSection = false;
-            }
-          );
-        } else {
-          this.showHiddenSection = false;
-          this.errorMessage = `Le bloc "${this.searchTerm}" n'existe pas.`;
-        }
+  
+    this.chamberService.getChambresByNomBloc(this.selectedBloc).subscribe(
+      (data) => {
+        console.log(data);
+        this.chambers = data;
+        this.showHiddenSection = this.chambers.length > 0;
       },
       (error) => {
         console.error(error);
@@ -85,4 +70,18 @@ export class ChambresComponent implements OnInit {
       }
     );
   }
+  loadBlocs() {
+    this.chamberService.getAllBlocs().subscribe(
+      (data) => {
+        console.log(data);
+        this.blocs = data;
+       
+      },
+      (error) => {
+        console.error(error);
+     
+      }
+    );
+  }
+
 }

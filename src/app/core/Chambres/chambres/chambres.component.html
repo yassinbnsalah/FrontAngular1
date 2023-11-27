@@ -1,4 +1,3 @@
-<!-- chambres.component.html -->
 <app-navbar></app-navbar>
 
 <section class="intro-single">
@@ -8,26 +7,29 @@
         <div class="title-single-box">
           <h1 class="title-single">Nos Chambres Incroyables</h1>
           <form class="form-inline my-2 my-lg-0" (submit)="searchChambers()">
-            <input class="form-control mr-sm-2" type="search" placeholder="Entrez le nom du Bloc" aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm">
+            <!-- Add the dropdown for bloc names -->
+            <select class="form-select mr-sm-2" [(ngModel)]="selectedBloc" name="selectedBloc">
+              <option value="" disabled selected>Choisissez un Bloc</option>
+              <option *ngFor="let bloc of blocs" [value]="bloc.nomBloc">{{ bloc.nomBloc }}</option>
+            </select>
 
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
           </form>
+          <div class="alert alert-success" *ngIf="errorMessage && !selectedBloc">
+            {{ errorMessage }}
+        </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="alert alert-success " *ngIf="errorMessage">
-    {{ errorMessage }}
-  </div>
+
 </section>
 
- <!-- =======  Blog Grid ======= -->
- <div class="container" *ngIf="showHiddenSection">
+<!-- ======= Blog Grid ======= -->
+<div class="container" *ngIf="showHiddenSection">
   <section class="news-grid grid" *ngIf="chambers.length > 0">
     <div class="row">
-      
-      
-      
+    
       <div class="col-md-4">
         <div class="card-box-b card-shadow news-box">
           <div class="img-box-b" [hidden]="!showHiddenSection">
@@ -38,7 +40,6 @@
               
               <div class="card-title-b">
                 <h2 class="title-2">
-             
                     <a routerLink="/chambre-simple">Chambre Simple
                     </a>
                 </h2>
@@ -90,7 +91,4 @@
     
 
 </section>
-
-
-
-<!-- End Blog Grid-->
+<!-- End Blog Grid -->
