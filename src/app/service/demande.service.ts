@@ -18,4 +18,8 @@ export class DemandeService {
    return  this.http.post<Demande>(environment.baseURL+
       environment.DemandeBackendURL+"/createdemande",demande, this.httpOptions);
   }
+  getDemande(email:any):Observable<Demande[]>{
+    return this.http.get<Demande[]>(environment.baseURL+
+      environment.DemandeBackendURL+"/listedemandebyEmail/"+email , this.httpOptions)
+  }
 }

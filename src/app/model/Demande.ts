@@ -9,4 +9,5 @@ export class Demande{
     AnneeUniversitaire!:string;
     autoRenewed!:boolean;
     state!:string;
+    dateDemande!: Date
 }

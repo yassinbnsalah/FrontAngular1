@@ -11,6 +11,7 @@ import { ReservationListeComponent } from './core/reservation-liste/reservation-
 import { ReservationDetailsComponent } from './core/reservation-details/reservation-details.component';
 import {UniversiteDetailsComponent} from "./core/universite-details/universite-details.component";
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { DemandeListeComponent } from './core/demande-liste/demande-liste.component';
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:"reservation/:id" , component:ReservationDetailsComponent},
   {path:"foyer" , component:FoyerListeComponent},
   {path:"login" , component:LoginPageComponent},
+  {path:"demande/liste" , component: DemandeListeComponent},
   {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
   {path:"not", component:NotFoundComponent}
 ];

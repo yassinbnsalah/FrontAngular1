@@ -18,6 +18,7 @@ import { ReservationDetailsComponent } from './core/reservation-details/reservat
 import { UniversiteDetailsComponent } from './core/universite-details/universite-details.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { CreateDemandeComponent } from './core/create-demande/create-demande.component';
+import { DemandeListeComponent } from './core/demande-liste/demande-liste.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { CreateDemandeComponent } from './core/create-demande/create-demande.com
     UniversiteDetailsComponent,
     NotFoundComponent,
     CreateDemandeComponent,
+    DemandeListeComponent,
   ],
   imports: [
     ReactiveFormsModule,

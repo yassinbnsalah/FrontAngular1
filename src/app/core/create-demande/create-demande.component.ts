@@ -22,9 +22,9 @@ export class CreateDemandeComponent implements OnInit {
     prename : new FormControl('', Validators.required),
     email : new FormControl('', Validators.required),
     cin : new FormControl('', Validators.required),
-    ecole : new FormControl('' , Validators.required),
-    typeChamber : new FormControl('' , Validators.required),
-    AnneeUniversitaire : new FormControl('', Validators.required),
+    ecole : new FormControl('Select Universite ' , Validators.required),
+    typeChamber : new FormControl('Select Type Chamber' , Validators.required),
+    AnneeUniversitaire : new FormControl('Select Année universitaire', Validators.required),
     autoRenewed : new FormControl('' ,Validators.required)
   })
 
@@ -66,10 +66,10 @@ export class CreateDemandeComponent implements OnInit {
     const demande: Demande = this.demande.value as unknown as Demande;
     console.log(demande);
     
-    this.demandeService.createDemande(demande).subscribe((data)=>{
+    /*this.demandeService.createDemande(demande).subscribe((data)=>{
       console.log(data);
       
-    })
+    })*/
     
   }
 
