@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UniversiteService } from "../add-universite/service/universite.service";
+import { UniversiteService } from "../../service/universite.service";
 import { ActivatedRoute } from "@angular/router";
-import {Universite} from "../../model/Universite";
+import {Universite} from "../../../model/Universite";
 @Component({
   selector: 'app-universite-details',
   templateUrl: './universite-details.component.html',

@@ -3,15 +3,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomePageComponent } from './core/home-page/home-page.component';
 import { AboutPageComponent } from './core/about-page/about-page.component';
-import { UniversitesListeComponent } from './core/universites-liste/universites-liste.component';
-import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
-import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
-import { LoginPageComponent } from './core/login-page/login-page.component';
-import { ReservationListeComponent } from './core/reservation-liste/reservation-liste.component';
-import { ReservationDetailsComponent } from './core/reservation-details/reservation-details.component';
-import {UniversiteDetailsComponent} from "./core/universite-details/universite-details.component";
-import { NotFoundComponent } from './core/not-found/not-found.component';
-import { DemandeListeComponent } from './core/demande-liste/demande-liste.component';
+import { UniversitesListeComponent } from './core/universite/universites-liste/universites-liste.component';
+import { FoyerListeComponent } from './core/foyer/foyer-liste/foyer-liste.component';
+import { AddUniversiteComponent } from './core/universite/add-universite/add-universite.component';
+import { LoginPageComponent } from './core/auth/login-page/login-page.component';
+import { ReservationListeComponent } from './core/reservation/reservation-liste/reservation-liste.component';
+import { ReservationDetailsComponent } from './core/reservation/reservation-details/reservation-details.component';
+import {UniversiteDetailsComponent} from "./core/universite/universite-details/universite-details.component";
+import { NotFoundComponent } from './core/auth/not-found/not-found.component';
+import { DemandeListeComponent } from './core/demande/demande-liste/demande-liste.component';
+import { ChambresComponent } from './core/Chambre/chambres/chambres.component';
+import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
+import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
+import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -19,12 +23,16 @@ const routes: Routes = [
   {path:"universites" , component:UniversitesListeComponent},
   {path:"universite/add" , component:AddUniversiteComponent},
   {path:"reservation/liste" , component:ReservationListeComponent},
-  {path:"reservation/:id" , component:ReservationDetailsComponent},
+  {path:"reservation/:id" , component:ReservationDetailsComponent}, 
   {path:"foyer" , component:FoyerListeComponent},
   {path:"login" , component:LoginPageComponent},
   {path:"demande/liste" , component: DemandeListeComponent},
   {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
-  {path:"not", component:NotFoundComponent}
+  {path:"not", component:NotFoundComponent},
+  {path:"chambres" , component:ChambresComponent},
+  {path:"chambre-simple" , component:ChambreSimpleComponent},
+  {path:"chambre-double" , component:ChambreDoubleComponent},
+  {path:"chambre-triple" , component:ChambreTripleComponent},
 ];
 
 @NgModule({

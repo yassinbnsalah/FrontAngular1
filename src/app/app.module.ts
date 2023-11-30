@@ -6,19 +6,23 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './core/home-page/home-page.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { AboutPageComponent } from './core/about-page/about-page.component';
-import { UniversitesListeComponent } from './core/universites-liste/universites-liste.component';
-import { FoyerListeComponent } from './core/foyer-liste/foyer-liste.component';
-import { AddUniversiteComponent } from './core/add-universite/add-universite.component';
+import { UniversitesListeComponent } from './core/universite/universites-liste/universites-liste.component';
+import { FoyerListeComponent } from './core/foyer/foyer-liste/foyer-liste.component';
+import { AddUniversiteComponent } from './core/universite/add-universite/add-universite.component';
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
-import { LoginPageComponent } from './core/login-page/login-page.component';
+import { LoginPageComponent } from './core/auth/login-page/login-page.component';
 import { NavbarDashboardComponent } from './shared/navbar-dashboard/navbar-dashboard.component';
-import { ReservationListeComponent } from './core/reservation-liste/reservation-liste.component';
-import { ReservationDetailsComponent } from './core/reservation-details/reservation-details.component';
-import { UniversiteDetailsComponent } from './core/universite-details/universite-details.component';
-import { NotFoundComponent } from './core/not-found/not-found.component';
-import { CreateDemandeComponent } from './core/create-demande/create-demande.component';
-import { DemandeListeComponent } from './core/demande-liste/demande-liste.component';
+import { ReservationListeComponent } from './core/reservation/reservation-liste/reservation-liste.component';
+import { ReservationDetailsComponent } from './core/reservation/reservation-details/reservation-details.component';
+import { UniversiteDetailsComponent } from './core/universite/universite-details/universite-details.component';
+import { NotFoundComponent } from './core/auth/not-found/not-found.component';
+import { CreateDemandeComponent } from './core/demande/create-demande/create-demande.component';
+import { DemandeListeComponent } from './core/demande/demande-liste/demande-liste.component';
+import { ChambresComponent } from './core/Chambre/chambres/chambres.component';
+import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
+import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
+import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { DemandeListeComponent } from './core/demande-liste/demande-liste.compon
     NotFoundComponent,
     CreateDemandeComponent,
     DemandeListeComponent,
+    ChambresComponent,
+    ChambreSimpleComponent,
+    ChambreDoubleComponent,
+    ChambreTripleComponent
   ],
   imports: [
     ReactiveFormsModule,

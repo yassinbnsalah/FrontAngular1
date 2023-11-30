@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {UniversiteService} from "../add-universite/service/universite.service";
-import {Universite} from "../../model/Universite";
+import {UniversiteService} from "../../service/universite.service";
+import {Universite} from "../../../model/Universite";
 
 @Component({
   selector: 'app-universites-liste',

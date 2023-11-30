@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<!-- ======= Intro Single ======= -->
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Chambre Triple</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Intro Single-->
+
+<!-- ======= Room Cards ======= -->
+<section class="room-cards">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let chambre of chambres">
+        <div class="card card-box-a card-shadow">
+          <div class="img-box-b" >
+            <img  [src]="'data:' + chambre.image?.image_type + ';base64,' + chambre.imagebyte" alt="Chambre Image" class="img-b img-fluid"  style= "width: 350px; height: 525px;">
+          </div>
+          <div class="card-overlay">
+            <div class="card-header-b">
+              <div class="card-category-b">
+                <a href="#" class="category-b">Numéro: {{ chambre.numerochamber }}</a>
+              </div>
+              <div class="card-title-b">
+                <h2 class="title-2">
+                  <a href=#>Description
+                   </a>
+                </h2>
+              </div>
+              <div class="card-body-a">
+                <p class="card-text"> {{ chambre.description }}</p>
+          
+              </div>
+              <div class="card-footer-a">
+           
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><!-- End Room Cards -->

@@ -44,7 +44,7 @@
                     </div>
                     <div class="col-md-6 mb-3">
                       <div class="form-group">
-                        <input type="text" name="adresse" [(ngModel)]="universite.adresse" placeholder="Location" required  class="form-control form-control-lg form-control-a" >
+                        <input name="lastname" type="text" class="form-control form-control-lg form-control-a" placeholder="Your LastName" required>
                       </div>
                     </div>
                     <div class="col-md-12 mb-3">
@@ -67,12 +67,14 @@
                         <input type="text" name="lastNameAgent" [(ngModel)]="universite.lastNameAgent" placeholder="Last Name" required class="form-control form-control-lg form-control-a">
                       </div>
                     </div>
-
-                    <div>
-                      <label for="image">Image:</label>
-                      <input type="file" id="image" (change)="onFileSelected($event)" required>
+                    <div class="form-group">
+                      <label for="image">Choose an Image:</label>
+                      <div class="custom-file">
+                        <input type="file" id="image" (change)="onFileSelected($event)" class="custom-file-input" required>
+                        <label class="custom-file-label" for="image">Select file...</label>
+                      </div>
                     </div>
-
+  
                     <div class="col-md-12 my-3">
                       <div class="mb-3">
                         <div class="loading">Loading</div>
@@ -94,16 +96,9 @@
                   </div>
                   <div class="icon-box-content table-cell">
                     <div class="icon-box-title">
-                      <h4 class="icon-title">Say Hello</h4>
+                      <h4 class="icon-title">Envoyer une demande D'ajoute</h4>
                     </div>
-                    <div class="icon-box-content">
-                      <p class="mb-1">Email.
-                        <span class="color-a">contact@example.com</span>
-                      </p>
-                      <p class="mb-1">Phone.
-                        <span class="color-a">+54 356 945234</span>
-                      </p>
-                    </div>
+                    
                   </div>
                 </div>
                 <div class="icon-box section-b2">
@@ -112,14 +107,9 @@
                   </div>
                   <div class="icon-box-content table-cell">
                     <div class="icon-box-title">
-                      <h4 class="icon-title">Find us in</h4>
+                      <h4 class="icon-title">Admin traite votre demande </h4>
                     </div>
-                    <div class="icon-box-content">
-                      <p class="mb-1">
-                        Manhattan, Nueva York 10036,
-                        <br> EE. UU.
-                      </p>
-                    </div>
+                 
                   </div>
                 </div>
                 <div class="icon-box">
@@ -128,34 +118,9 @@
                   </div>
                   <div class="icon-box-content table-cell">
                     <div class="icon-box-title">
-                      <h4 class="icon-title">Social networks</h4>
+                      <h4 class="icon-title">Admin icontactic par mail</h4>
                     </div>
-                    <div class="icon-box-content">
-                      <div class="socials-footer">
-                        <ul class="list-inline">
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-facebook" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-linkedin" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+               
                   </div>
                 </div>
               </div>
