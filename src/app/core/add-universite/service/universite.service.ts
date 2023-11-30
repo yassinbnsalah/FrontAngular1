@@ -19,10 +19,16 @@ export class UniversiteService {
     private baseUrl1 = 'http://localhost:8081/UniversiteRestController/findById/';
     private baseUrl2 = 'http://localhost:8081/UniversiteRestController/acceptedUniversite';
 
+    private apiLogo = 'http://localhost:8081/UniversiteRestController/uploadLogo/'
+
     constructor(private http: HttpClient) { }
 
   uploadImg(formData: FormData, idUniversite : any) : Observable<Universite>{
       return this.http.post<Universite>(this.api+idUniversite, formData);
+  }
+
+  uploadLogo(formData: FormData, idUniversite : any) : Observable<Universite>{
+    return this.http.post<Universite>(this.apiLogo+idUniversite, formData);
   }
     addUniversityWithImage(universite: Universite): Observable<any> {
         const formData: FormData = new FormData();
