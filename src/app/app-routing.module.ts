@@ -16,6 +16,7 @@ import { ChambresComponent } from './core/Chambre/chambres/chambres.component';
 import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
+import {MapComponent} from "./core/map/map.component";
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -33,6 +34,8 @@ const routes: Routes = [
   {path:"chambre-simple" , component:ChambreSimpleComponent},
   {path:"chambre-double" , component:ChambreDoubleComponent},
   {path:"chambre-triple" , component:ChambreTripleComponent},
+
+  {path:"map" , component:MapComponent}
 ];
 
 @NgModule({

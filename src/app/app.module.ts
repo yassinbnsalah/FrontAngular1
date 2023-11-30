@@ -23,6 +23,7 @@ import { ChambresComponent } from './core/Chambre/chambres/chambres.component';
 import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
+import { MapComponent } from './core/map/map.component';
 
 @NgModule({
   declarations: [
@@ -44,15 +45,18 @@ import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-tr
     ChambresComponent,
     ChambreSimpleComponent,
     ChambreDoubleComponent,
-    ChambreTripleComponent
+    ChambreTripleComponent,
+    MapComponent
   ],
   imports: [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -19,6 +19,7 @@ export class UniversiteService {
     private baseUrl = 'http://localhost:8081/UniversiteRestController/findAll';
     private baseUrl1 = 'http://localhost:8081/UniversiteRestController/findById/';
     private baseUrl2 = 'http://localhost:8081/UniversiteRestController/acceptedUniversite';
+    private apiLogo = 'http://localhost:8081/UniversiteRestController/uploadLogo/'
 
    
  
@@ -27,6 +28,9 @@ export class UniversiteService {
 
   uploadImg(formData: FormData, idUniversite: any): Observable<Universite> {
     return this.http.post<Universite>(this.api + idUniversite, formData);
+  }
+  uploadLogo(formData: FormData, idUniversite : any) : Observable<Universite>{
+    return this.http.put<Universite>(this.apiLogo+idUniversite, formData);
   }
 
 
