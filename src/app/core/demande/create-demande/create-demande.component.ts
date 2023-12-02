@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/AuthServices/auth.service';
 import { User } from 'src/app/model/User';
 import { DemandeService } from 'src/app/service/demande.service';
 import { Demande } from 'src/app/model/Demande';
+import { EmailValidator, cinValidator } from '../CinValidator';
 
 @Component({
   selector: 'app-create-demande',
@@ -20,8 +21,8 @@ export class CreateDemandeComponent implements OnInit {
   demande = new FormGroup({
     name : new FormControl('', Validators.required),
     prename : new FormControl('', Validators.required),
-    email : new FormControl('', Validators.required),
-    cin : new FormControl('', Validators.required),
+    email : new FormControl('', [Validators.required,EmailValidator()]),
+    cin : new FormControl('', [Validators.required,cinValidator()]),
     ecole : new FormControl('' , Validators.required),
     typeChamber : new FormControl('' , Validators.required),
     anneeUniversitaire : new FormControl('', Validators.required),
@@ -38,7 +39,16 @@ export class CreateDemandeComponent implements OnInit {
       this.getUserByEmail();
      
     }
+
+
      
+  }
+  isEmail(email: string): boolean {
+   
+    
+    // Regular expression for basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   }
 
 
@@ -60,12 +70,17 @@ export class CreateDemandeComponent implements OnInit {
       this.universites = data ; 
     })
   }
-
+  validMail :Boolean = true ;
   saveDemande(){ 
    
     const demande: Demande = this.demande.value as unknown as Demande;
     console.log(demande);
-    
+    if(!this.isEmail(demande.email)){
+      console.log("email invalide");
+      this.validMail = false
+    }else{
+      this.validMail = true
+    }
    /* this.demandeService.createDemande(demande).subscribe((data)=>{
       console.log(data);
       

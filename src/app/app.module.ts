@@ -24,6 +24,7 @@ import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-si
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 import { MapComponent } from './core/map/map.component';
+import { ErrormsgComponent } from './shared/errormsg/errormsg.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MapComponent } from './core/map/map.component';
     ChambreSimpleComponent,
     ChambreDoubleComponent,
     ChambreTripleComponent,
-    MapComponent
+    MapComponent,
+    ErrormsgComponent
   ],
   imports: [
     ReactiveFormsModule,
