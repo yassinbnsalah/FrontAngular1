@@ -24,9 +24,9 @@ const routes: Routes = [
   {path:"foyer" , component:FoyerListeComponent},
   {path:"login" , component:LoginPageComponent} ,
   {path:"chambres" , component:ChambresComponent},
-  {path:"chambre-simple" , component:ChambreSimpleComponent},
-  {path:"chambre-double" , component:ChambreDoubleComponent},
-  {path:"chambre-triple" , component:ChambreTripleComponent},
+  {path:":nomBloc/chambre-simple" , component:ChambreSimpleComponent},
+  {path:":nomBloc/chambre-double" , component:ChambreDoubleComponent},
+  {path:":nomBloc/chambre-triple" , component:ChambreTripleComponent},
 ];
 
 @NgModule({

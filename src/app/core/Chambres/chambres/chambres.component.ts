@@ -1,6 +1,7 @@
 // chambres.component.ts
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Bloc } from 'src/app/model/Bloc';
 import { Chamber } from 'src/app/model/Chamber';
 import { ChamberService } from 'src/app/service/chamber.service';
@@ -18,12 +19,25 @@ export class ChambresComponent implements OnInit {
   selectedBloc: string = '';
   blocs: Bloc[] = []; 
 
-  constructor(public chamberService: ChamberService) {}
+  constructor(
+    public   chamberService: ChamberService,
+  
+    private route: ActivatedRoute,
+    private router: Router
+    ) {}
 
   ngOnInit() {
-    this.loadChambers();
-    this.loadBlocs(); 
-
+    // Subscribe to changes in the route parameters
+    this.route.paramMap.subscribe(params => {
+      // Get the value of the 'nomBloc' parameter from the URL
+      this.selectedBloc = params.get('nomBloc') || '';
+      
+      // Load chambers based on the selected bloc
+      this.loadChambers();
+      
+      // Load all blocs
+      this.loadBlocs();
+    });
   }
 
   toggleHiddenSection() {
@@ -83,5 +97,8 @@ export class ChambresComponent implements OnInit {
       }
     );
   }
-
+  onBlocChange() {
+    // Update the URL with the selected bloc
+    this.router.navigate(['chambres', { nomBloc: this.selectedBloc }]);
+  }
 }
