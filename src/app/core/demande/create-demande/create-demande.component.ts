@@ -18,6 +18,7 @@ export class CreateDemandeComponent implements OnInit {
   universites !: Universite[];
   demanadeAdded !: Demande ; 
   disabledAttr : boolean = false ; 
+  hideDemande :Boolean = true ; 
   demande = new FormGroup({
     name : new FormControl('', Validators.required),
     prename : new FormControl('', Validators.required),
@@ -26,7 +27,7 @@ export class CreateDemandeComponent implements OnInit {
     ecole : new FormControl('' , Validators.required),
     typeChamber : new FormControl('' , Validators.required),
     anneeUniversitaire : new FormControl('', Validators.required),
-    autoRenewed : new FormControl('' ,Validators.required)
+    autoRenewed : new FormControl('')
   })
 
   constructor(private universiteService : UniversiteService , 
@@ -75,16 +76,17 @@ export class CreateDemandeComponent implements OnInit {
    
     const demande: Demande = this.demande.value as unknown as Demande;
     console.log(demande);
-    if(!this.isEmail(demande.email)){
+    /*if(!this.isEmail(demande.email)){
       console.log("email invalide");
       this.validMail = false
     }else{
       this.validMail = true
-    }
-   /* this.demandeService.createDemande(demande).subscribe((data)=>{
+    }*/
+   this.demandeService.createDemande(demande).subscribe((data)=>{
       console.log(data);
       
-    })*/
+      this.hideDemande = false
+    })
     
   }
 

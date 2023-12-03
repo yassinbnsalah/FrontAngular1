@@ -6,8 +6,9 @@ export class Demande{
     email!:string; 
     ecole!:string;
     typeChamber!:string;
-    AnneeUniversitaire!:string;
+    anneeUniversitaire!:string;
     autoRenewed!:boolean;
+    createdAt!:string ;
     state!:string;
     dateDemande!: Date
 }

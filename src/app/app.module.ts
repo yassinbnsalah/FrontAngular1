@@ -48,7 +48,7 @@ import { ErrormsgComponent } from './shared/errormsg/errormsg.component';
     ChambreDoubleComponent,
     ChambreTripleComponent,
     MapComponent,
-    ErrormsgComponent
+    ErrormsgComponent,
   ],
   imports: [
     ReactiveFormsModule,

@@ -29,13 +29,14 @@ const routes: Routes = [
   {path:"login" , component:LoginPageComponent},
   {path:"demande/liste" , component: DemandeListeComponent},
   {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
-  {path:"not", component:NotFoundComponent},
+ 
   {path:"chambres" , component:ChambresComponent},
   {path:"chambre-simple" , component:ChambreSimpleComponent},
   {path:"chambre-double" , component:ChambreDoubleComponent},
   {path:"chambre-triple" , component:ChambreTripleComponent},
 
-  {path:"map" , component:MapComponent}
+  {path:"map" , component:MapComponent},
+  {path:"**", component:NotFoundComponent},
 ];
 
 @NgModule({
