@@ -1,13 +1,14 @@
 <app-navbar></app-navbar>
 <main id="main">
+  <link rel="stylesheet" href="universites-liste.component.css">
     <!-- ======= Intro Single ======= -->
     <section class="intro-single">
       <div class="container">
         <div class="row">
           <div class="col-md-12 col-lg-8">
             <div class="title-single-box">
-              <h1 class="title-single">Foyer LISTAA </h1>
-              <span class="color-text-a">Grid Properties</span>
+              <h1 class="title-single">La liste des universités</h1>
+              <span class="color-text-a">Liste des universités</span>
             </div>
           </div>
           <div class="col-md-12 col-lg-4">
@@ -46,7 +47,7 @@
           <div class="col-md-4" *ngFor="let universite of universites">
             <div class="card-box-a card-shadow" style="height: 400px;">
               <div class="img-box-a">
-                <img [src]="'data:' + universite.image?.image_type + 
+                <img [src]="'data:' + universite.image?.image_type +
                 ';base64,' + universite.imagebyte"  alt="" class="img-a img-fluid" width="100%">
               </div>
               <div class="card-overlay">
@@ -58,7 +59,7 @@
                   </div>
                   <div class="card-body-a">
                     <div class="price-box d-flex">
-                      <span class="price-a">Adresse z: {{universite.adresse}}</span>
+                      <span class="price-a">Adresse: {{universite.adresse}}</span>
                     </div>
                     <a [routerLink]="['/universiteDetail', universite.idUniversite]" class="link-a">See more
                       <span class="bi bi-chevron-right"></span>
@@ -66,12 +67,10 @@
                   </div>
                   <div class="card-footer-a">
                     <ul class="card-info d-flex justify-content-around">
-                      <li>
+                      <li class="border-bottom-0 email-container">
                         <h4 class="card-info-title">Email Agent :</h4>
-                        <span> <a href="mailto:{{universite.email}}">{{universite.email}}</a>
-                        </span>
+                        <a class="email-link" href="mailto:{{universite.email}}">{{universite.email}}</a>
                       </li>
-                     
                     </ul>
                   </div>
                 </div>
@@ -110,7 +109,7 @@
       </div>
     </section><!-- End Property Grid Single-->
 
-  
+
 
 
 

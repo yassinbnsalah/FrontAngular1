@@ -1,184 +1,219 @@
 <app-navbar></app-navbar>
 <main id="main">
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
 
-    <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8">
-            <div class="title-single-box">
-              <h1 class="title-single">Create New Univeriste</h1>
-              <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
+  <!-- ======= Intro Single ======= -->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Create New Univeriste</h1>
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <span class="bi bi-share"></span>
+              </div>
+              <div class="icon-box-content table-cell">
+                <div class="icon-box-title">
+                  <h4 class="icon-title">Information : How it works !</h4>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  new Univeriste
-                </li>
-              </ol>
-            </nav>
-          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb"
+            class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                new Univeriste
+              </li>
+            </ol>
+          </nav>
         </div>
       </div>
-    </section><!-- End Intro Single-->
+    </div>
+  </section><!-- End Intro Single-->
 
-    <!-- ======= Contact Single ======= -->
-    <section class="contact">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-sm-12 section-t8">
-            <div class="row">
-              <div class="col-md-7">
-                <form [formGroup]="universiteForm" 
-                method="post" role="form"
-                (ngSubmit)="onSubmit()">
-
+  <!-- ======= Contact Single ======= -->
+  <section class="contact">
+    <div class="container">
+      <div class="row justify-content-center align-items-center">
+        <!-- Added justify-content-center and align-items-center -->
+        <div class="col-sm-12 section-t8">
+          <div class="row justify-content-center">
+            <div class="col-md-7">
+              <form [formGroup]="universiteForm" (ngSubmit)="onSubmit()"
+                novalidate class="needs-validation">
                 <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input type="text" 
-                        formControlName="nomUniversite" 
-                        class="form-control" placeholder="University Name" required>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input type="text" formControlName="nomUniversite"
+                        class="form-control"
+                        placeholder="University Name"
+                        [class.is-invalid]="universiteForm.get('nomUniversite')?.invalid
+                        && universiteForm.get('nomUniversite')?.dirty ">
+
+                      <div class="invalid-feedback">
+                        <app-errormsg
+                          [err]="universiteForm.get('nomUniversite')"
+                          [field]="'nomUniversite'"></app-errormsg>
+
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input type="text" formControlName="adresse" placeholder="Location" required class="form-control form-control-lg form-control-a">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input type="text" formControlName="adresse"
+                        class="form-control"
+                        placeholder="Adresse"
+                        [class.is-invalid]="universiteForm.get('adresse')?.invalid
+                        && universiteForm.get('adresse')?.dirty ">
+
+                      <div class="invalid-feedback">
+                        <app-errormsg [err]="universiteForm.get('adresse')"
+                          [field]="'adresse'"></app-errormsg>
                       </div>
                     </div>
-                    <div class="col-md-12 mb-3">
-                      <div class="form-group">
-                        <textarea formControlName="description" placeholder="Description" required class="form-control form-control-lg form-control-a"></textarea>
+                  </div>
+                  <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                      <textarea type="text" formControlName="description"
+                        class="form-control"
+                        placeholder="Description"
+                        [class.is-invalid]="universiteForm.get('description')?.invalid
+                                && universiteForm.get('description')?.dirty">
+                      </textarea>
+                      <div class="invalid-feedback">
+                        <app-errormsg [err]="universiteForm.get('description')"
+                          [field]="'description'"></app-errormsg>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input type="email" formControlName="email" placeholder="email" required class="form-control form-control-lg form-control-a">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input name="email" type="email" formControlName="email"
+                        class="form-control "
+                        placeholder="Email"
+                        [class.is-invalid]="universiteForm.get('email')?.invalid &&
+                                             universiteForm.get('email')?.dirty " />
+                      <div class="invalid-feedback">
+                        <app-errormsg [err]="universiteForm.get('email')"
+                          [field]="'email'"></app-errormsg>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input type="text" formControlName="firstNameAgent" placeholder="First Name" required class="form-control form-control-lg form-control-a">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input name="firstNameAgent" type="firstNameAgent"
+                        formControlName="firstNameAgent"
+                        class="form-control"
+                        placeholder="firstNameAgent"
+                        [class.is-invalid]="universiteForm.get('firstNameAgent')?.invalid &&
+                                             universiteForm.get('email')?.dirty " />
+                      <div class="invalid-feedback">
+                        <app-errormsg
+                          [err]="universiteForm.get('firstNameAgent')"
+                          [field]="'firstNameAgent'"></app-errormsg>
                       </div>
                     </div>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input type="text" formControlName="lastNameAgent" placeholder="Last Name" required class="form-control form-control-lg form-control-a">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                      <input name="lastNameAgent" type="lastNameAgent"
+                        formControlName="lastNameAgent"
+                        class="form-control "
+                        placeholder="lastNameAgent"
+                        [class.is-invalid]="universiteForm.get('lastNameAgent')?.invalid &&
+                                             universiteForm.get('lastNameAgent')?.dirty " />
+                      <div class="invalid-feedback">
+                        <app-errormsg
+                          [err]="universiteForm.get('lastNameAgent')"
+                          [field]="'lastNameAgent'"></app-errormsg>
                       </div>
                     </div>
+                  </div>
 
                   <div class="form-group">
                     <label for="logo">Choose Logo:</label>
                     <div class="custom-file">
-                      <input type="file" id="logo" (change)="onLogoSelected($event)" class="custom-file-input" required>
+                      <input type="file" id="logo"
+                        (change)="onLogoSelected($event)"
+                        class="custom-file-input">
                       <label class="custom-file-label" for="logo">Select file...</label>
+                    </div>
+                  </div>
+                  <div *ngIf="imagePreview" class="mt-3">
+                    <label class="d-block">Logo Preview:</label>
+                    <div class="text-center">
+
+                      <img [src]="imagePreview" alt="Image Preview"
+                        class="img-thumbnail"
+                        style="max-width: 150px; max-height: 150px;">
+
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="image">Choose an Image:</label>
+                    <label for="justification">Choose justification:</label>
                     <div class="custom-file">
-                      <input type="file" id="image" (change)="onFileSelected($event)" class="custom-file-input" required>
-                      <label class="custom-file-label" for="image">Select file...</label>
+                      <input type="file" id="justification"
+                        (change)="onJustificationSelected($event)"
+                        class="custom-file-input">
+                      <label class="custom-file-label" for="justification">Select
+                        file...</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="attestation">Choose Attestation:</label>
+                    <div class="custom-file">
+                      <input type="file" id="attestation"
+                        (change)="onAttestationSelected($event)"
+                        class="custom-file-input">
+                      <label class="custom-file-label" for="attestation">Select
+                        file...</label>
                     </div>
                   </div>
 
-                  <div class="col-md-12 my-3">
-                      <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                      </div>
+                  <div class="form-group">
+                    <label for="image" class="mr-2">Choose University Image :</label>
+                    <div class="custom-file">
+                      Choose an Image:
+                      <input type="file" id="image"
+                        (change)="onFileSelected($event)"
+                        class="custom-file-input"
+                        style="font-size: 16px; padding: 10px;" required>
+                      <label class="custom-file-label" for="image">Select
+                        file...</label>
                     </div>
+                  </div>
 
-                    <div class="col-md-12 text-center">
-                      <button type="submit" class="btn btn-a">Create New Universite</button>
+                  <div *ngIf="imagePreview" class="mt-3">
+                    <label class="d-block">Image Preview:</label>
+                    <div class="text-center">
+                      <img [src]="imagePreview" alt="Image Preview"
+                        class="img-thumbnail"
+                        style="max-width: 150px; max-height: 150px;">
                     </div>
                   </div>
-                </form>
-              </div>
-              <div class="col-md-5 section-md-t3">
-                <div class="icon-box section-b2">
-                  <div class="icon-box-icon">
-                    <span class="bi bi-envelope"></span>
-                  </div>
-                  <div class="icon-box-content table-cell">
-                    <div class="icon-box-title">
-                      <h4 class="icon-title">Say Hello</h4>
-                    </div>
-                    <div class="icon-box-content">
-                      <p class="mb-1">Email.
-                        <span class="color-a">contact@example.com</span>
-                      </p>
-                      <p class="mb-1">Phone.
-                        <span class="color-a">+54 356 945234</span>
-                      </p>
-                    </div>
+
+                  <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-a"
+                      [disabled]="universiteForm.invalid">Create New Universite</button>
                   </div>
                 </div>
-                <div class="icon-box section-b2">
-                  <div class="icon-box-icon">
-                    <span class="bi bi-geo-alt"></span>
-                  </div>
-                  <div class="icon-box-content table-cell">
-                    <div class="icon-box-title">
-                      <h4 class="icon-title">Find us in</h4>
-                    </div>
-                    <div class="icon-box-content">
-                      <p class="mb-1">
-                        Manhattan, Nueva York 10036,
-                        <br> EE. UU.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="icon-box">
-                  <div class="icon-box-icon">
-                    <span class="bi bi-share"></span>
-                  </div>
-                  <div class="icon-box-content table-cell">
-                    <div class="icon-box-title">
-                      <h4 class="icon-title">Social networks</h4>
-                    </div>
-                    <div class="icon-box-content">
-                      <div class="socials-footer">
-                        <ul class="list-inline">
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-facebook" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-twitter" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-instagram" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                          <li class="list-inline-item">
-                            <a href="#" class="link-one">
-                              <i class="bi bi-linkedin" aria-hidden="true"></i>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- End Contact Single-->
+    </div>
+  </section><!-- End Contact Single-->
 
-  </main><!-- End #main -->
+</main><!-- End #main -->

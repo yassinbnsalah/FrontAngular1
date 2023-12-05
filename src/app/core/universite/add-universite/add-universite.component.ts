@@ -5,6 +5,9 @@ import {map} from "rxjs"; // Adjust the import path if needed
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import { UniversiteService } from '../../service/universite.service';
+import {DomSanitizer, SafeUrl} from "@angular/platform-browser";
+import {EmailValidator} from "../../demande/CinValidator";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-add-universite',
@@ -14,24 +17,26 @@ import { UniversiteService } from '../../service/universite.service';
 export class AddUniversiteComponent implements OnInit{
 
   universiteForm!: FormGroup;
-
+  isUniversityNameUnique = true;
 
   constructor(
     private formBuilder: FormBuilder,
     private universiteService: UniversiteService,
     private http: HttpClient,
-    private router : Router
+    private router : Router,
+    private toastr: ToastrService,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
     this.universiteForm = this.formBuilder.group({
-      nomUniversite: [''],
-      adresse: [''],
-      statuts: [''],
-      description: [''],
-      email: [''],
-      firstNameAgent: [''],
-      lastNameAgent: [''],
+      nomUniversite: ['',Validators.required],
+      adresse: ['',Validators.required],
+      statuts: ['',Validators.required],
+      description: ['',Validators.required],
+      email: ['',[Validators.required,EmailValidator()]],
+      firstNameAgent: ['',Validators.required],
+      lastNameAgent: ['',Validators.required],
     });
     const statuts = this.universiteForm.get('statuts');
     if (statuts) {
@@ -40,54 +45,63 @@ export class AddUniversiteComponent implements OnInit{
   }
 
 
+  imagePreview: SafeUrl | null = null;
   selectedFile: File | null = null;
-  selectedLogo: File | null  = null;
-  onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0];
-    console.log(this.selectedFile);
-  }
+  selectedLogo: File | null = null;
+  selectedJustification: File | null = null;
+  selectedAttestation: File | null = null;
 
-  onLogoSelected(event: any){
+
+  onLogoSelected(event: any) {
     this.selectedLogo = event.target.files[0];
   }
 
-uploadImage(idUniversite:any){
-  if (this.selectedFile) {
-    console.log("ENTER");
-    let formData = new FormData();
-    formData.append('file', this.selectedFile,this.selectedFile.name);
-    formData.forEach((value, key) => {
-      console.log(key, value);
-    });
+  onJustificationSelected(event: any) {
+    this.selectedJustification = event.target.files[0];
+  }
 
-    this.universiteService.uploadImg(formData,idUniversite).subscribe(
-      (data) =>{
-        console.log(data);
-        this.uploadLogo(data.idUniversite);
-
-      }
-    )
-  }}
-
-  uploadLogo(idUniversite:any){
-    if (this.selectedLogo) {
-      console.log("LOGO");
+  onAttestationSelected(event: any) {
+    this.selectedAttestation = event.target.files[0];
+  }
+  uploadImage(idUniversite: any) {
+    if (this.selectedFile) {
+      console.log("ENTER");
       let formData = new FormData();
-      formData.append('logo', this.selectedLogo,this.selectedLogo.name);
+      formData.append('file', this.selectedFile, this.selectedFile.name);
+      formData.append('logo', this.selectedLogo!, this.selectedLogo?.name);
+      formData.append('justification', this.selectedJustification!, this.selectedJustification?.name);
+      formData.append('attestation', this.selectedAttestation!, this.selectedAttestation?.name);
       formData.forEach((value, key) => {
         console.log(key, value);
       });
 
-      this.universiteService.uploadLogo(formData,idUniversite).subscribe(
-        (data) =>{
+      this.universiteService.uploadImg(formData, idUniversite).subscribe(
+        (data) => {
           console.log(data);
-          this.router.navigate(['about']);
         }
-      )
-    }}
+      );
+    }
+  }
+
+    onFileSelected(event: any) {
+        console.log('File selected:', event.target.files[0]);
+        this.selectedFile = event.target.files[0];
+        this.showImagePreview(this.selectedFile);
+    }
+
+    showImagePreview(file: File | null) {
+        console.log('Show image preview for file:', file);
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e: any) => {
+                this.imagePreview = this.sanitizer.bypassSecurityTrustUrl(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
 
 
-  onSubmit() {
+   onSubmit() {
 
       const formData = this.universiteForm.value;
       console.log('Form submitted:', formData);
@@ -96,9 +110,49 @@ uploadImage(idUniversite:any){
         (data)=>{
           console.log('University added:', data);
           this.uploadImage(data.idUniversite);
+          this.showToast();
         }
       );
+
   }
+
+  showToast() {
+    this.toastr.success('Your university request is sended successfully!', 'Success', {
+      closeButton: true,
+    });
+  }
+  /*onSubmit() {
+    // Check if the university name is unique before submitting
+    const universityName = this.universiteForm.get('nomUniversite')?.value;
+
+    this.universiteService.checkUniversityNameUnique(universityName).subscribe(
+      (isUniversityNameUnique) => {
+        if (isUniversityNameUnique) {
+          console.log(isUniversityNameUnique)
+          // If the name is unique, proceed with the form submission
+          const formData = this.universiteForm.value;
+          console.log('Form submitted:', formData);
+
+          this.universiteService.addUniversite(formData).subscribe(
+            (data) => {
+              console.log('University added:', data);
+              this.uploadImage(data.idUniversite);
+            },
+            (error) => {
+              console.error('Error adding university:', error);
+            }
+          );
+        } else {
+          console.log('University name already exists. Choose a different name.');
+          // Handle accordingly, e.g., display an error message
+        }
+      },
+      (error) => {
+        console.error('Error checking university name uniqueness:', error);
+      }
+    );
+  }*/
+
 }
 
 
