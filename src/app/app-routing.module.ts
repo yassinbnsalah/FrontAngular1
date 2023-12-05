@@ -13,6 +13,7 @@ import { ChambresComponent } from './core/Chambres/chambres/chambres.component';
 import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
+import { ChambreNonDisponibleComponent } from './shared/chambre not found/chambre-non-disponible/chambre-non-disponible.component';
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:":nomBloc/chambre-simple" , component:ChambreSimpleComponent},
   {path:":nomBloc/chambre-double" , component:ChambreDoubleComponent},
   {path:":nomBloc/chambre-triple" , component:ChambreTripleComponent},
+  {path:"chambre/notfound" , component:ChambreNonDisponibleComponent},
 ];
 
 @NgModule({

@@ -19,6 +19,7 @@ import { ChambresComponent } from './core/Chambres/chambres/chambres.component';
 import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
+import { ChambreNonDisponibleComponent } from './shared/chambre not found/chambre-non-disponible/chambre-non-disponible.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-tr
     ChambresComponent,
     ChambreSimpleComponent,
     ChambreDoubleComponent,
-    ChambreTripleComponent
+    ChambreTripleComponent,
+    ChambreNonDisponibleComponent
   ],
   imports: [
     HttpClientModule,
