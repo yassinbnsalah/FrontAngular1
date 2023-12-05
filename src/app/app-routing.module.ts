@@ -17,6 +17,7 @@ import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-si
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 import {MapComponent} from "./core/map/map.component";
+import {StepComponent} from "./core/step/step.component";
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path:"universites" , component:UniversitesListeComponent},
   {path:"universite/add" , component:AddUniversiteComponent},
   {path:"reservation/liste" , component:ReservationListeComponent},
-  {path:"reservation/:id" , component:ReservationDetailsComponent}, 
+  {path:"reservation/:id" , component:ReservationDetailsComponent},
   {path:"foyer" , component:FoyerListeComponent},
   {path:"login" , component:LoginPageComponent},
   {path:"demande/liste" , component: DemandeListeComponent},
@@ -35,7 +36,7 @@ const routes: Routes = [
   {path:"chambre-double" , component:ChambreDoubleComponent},
   {path:"chambre-triple" , component:ChambreTripleComponent},
 
-  {path:"map" , component:MapComponent}
+  {path:"step" , component:StepComponent}
 ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+<mat-horizontal-stepper linear>
+  <!-- Step 1 -->
+  <mat-step label="University" completed=true>
+    <p>University</p>
+    <div class="button-container">
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <!-- Step 2 -->
+  <mat-step label="Agent" completed=false>
+    <p>Agent</p>
+    <div class="button-container">
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+
+  <!-- Step 3 -->
+  <mat-step label="Downloads" completed=false>
+    <p>Downloads</p>
+    <div class="button-container">
+      <button mat-button matStepperPrevious>Back</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

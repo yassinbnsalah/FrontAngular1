@@ -9,36 +9,36 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="title-single">Creation du nouvelle demande</h1>
-                        <form method="post" role="form"  [formGroup]="demande" 
+                        <form method="post" role="form"  [formGroup]="demande"
                         novalidate class="needs-validation">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <input type="text" name="name" formControlName ="name"
                                             class="form-control form-control-lg form-control-a"
-                                            placeholder="name" 
-                                            [class.is-invalid]="demande.get('name')?.invalid 
+                                            placeholder="name"
+                                            [class.is-invalid]="demande.get('name')?.invalid
                                             && demande.get('name')?.dirty ">
-                                        
+
                                         <div  class="invalid-feedback">
-                                            <app-errormsg [err]="demande.get('name')" 
+                                            <app-errormsg [err]="demande.get('name')"
                                             [field]="'name'"></app-errormsg>
-                                        </div> 
-                                          
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <input type="text" name="prename"  formControlName ="prename"
                                             class="form-control form-control-lg form-control-a"
-                                            placeholder="prename"    [class.is-invalid]="demande.get('prename')?.invalid 
+                                            placeholder="prename"    [class.is-invalid]="demande.get('prename')?.invalid
                                             && demande.get('prename')?.dirty">
-                                        
+
                                         <div  class="invalid-feedback">
-                                            <app-errormsg [err]="demande.get('prename')" 
+                                            <app-errormsg [err]="demande.get('prename')"
                                             [field]="'prename'"></app-errormsg>
-                                        </div> 
-                                            
+                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -46,41 +46,41 @@
                                         <input name="email" type="email"  formControlName ="email"
                                             class="form-control form-control-lg form-control-a"
                                             placeholder="Email"   [class.is-invalid]="demande.get('email')?.invalid &&
-                                             demande.get('email')?.dirty || !validMail "
+                                             demande.get('email')?.dirty  "
                                             />
                                         <div class="invalid-feedback">
-                                            <app-errormsg [err]="demande.get('email')" 
+                                            <app-errormsg [err]="demande.get('email')"
                                             [field]="'email'"></app-errormsg>
-                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <input name="cin" type="text"  formControlName="cin"
                                             class="form-control form-control-lg form-control-a"
-                                            placeholder="cin" [class.is-invalid]="demande.get('cin')?.invalid 
+                                            placeholder="cin" [class.is-invalid]="demande.get('cin')?.invalid
                                             && demande.get('cin')?.dirty">
-                                        
+
                                         <div  class="invalid-feedback">
-                                            <app-errormsg [err]="demande.get('cin')" 
+                                            <app-errormsg [err]="demande.get('cin')"
                                             [field]="'cin'"></app-errormsg>
-                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <select  formControlName="ecole" 
+                                        <select  formControlName="ecole"
                                             class="form-control form-control-lg form-control-a">
                                             <option> Select Universite </option>
                                             <option *ngFor="let universite of universites"> {{universite.nomUniversite}} </option>
-                                        
+
                                         </select>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group">
-                                        <select formControlName="typeChamber" 
+                                        <select formControlName="typeChamber"
                                             class="form-control form-control-lg form-control-a">
                                             <option > Select Type Chamber</option>
                                             <option> Simple </option>

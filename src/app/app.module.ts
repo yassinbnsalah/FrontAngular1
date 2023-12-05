@@ -25,6 +25,14 @@ import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-do
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 import { MapComponent } from './core/map/map.component';
 import { ErrormsgComponent } from './shared/errormsg/errormsg.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListeAgentComponent } from './core/universite/liste-agent/liste-agent/liste-agent.component';
+import { StepComponent } from './core/step/step.component';
+import {MatInputModule} from "@angular/material/input";
+import {MatStepperModule} from "@angular/material/stepper";
+import { ToastrModule } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -48,7 +56,9 @@ import { ErrormsgComponent } from './shared/errormsg/errormsg.component';
     ChambreDoubleComponent,
     ChambreTripleComponent,
     MapComponent,
-    ErrormsgComponent
+    ErrormsgComponent,
+    ListeAgentComponent,
+    StepComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -56,10 +66,18 @@ import { ErrormsgComponent } from './shared/errormsg/errormsg.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatStepperModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
 
-  providers: [],
+  providers: [
+    provideAnimations(), // required animations providers
+    provideToastr(), // Toastr providers
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

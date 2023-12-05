@@ -21,8 +21,8 @@ export class UniversiteService {
     private baseUrl2 = 'http://localhost:8081/UniversiteRestController/acceptedUniversite';
     private apiLogo = 'http://localhost:8081/UniversiteRestController/uploadLogo/'
 
-   
- 
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -50,6 +50,13 @@ export class UniversiteService {
   }
   getUniversiteById(id:number):Observable<Universite>{
     return this.http.get<Universite>(this.baseUrl1+id);
+  }
+  private checkUniversityNameUniqueUrl = 'http://localhost:8081/UniversiteRestController/checkUniversityNameUnique/';
+
+
+  checkUniversityNameUnique(universityName: string): Observable<boolean> {
+    const url = `${this.checkUniversityNameUniqueUrl}${universityName}`;
+    return this.http.get<boolean>(url);
   }
 
 }
