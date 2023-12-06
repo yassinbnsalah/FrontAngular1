@@ -18,6 +18,7 @@ import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-do
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
 import {MapComponent} from "./core/map/map.component";
 import {StepComponent} from "./core/step/step.component";
+import { FoyerDetailsComponent } from './core/foyer/foyer-details/foyer-details.component';
 
 const routes: Routes = [
   {path:"home" , component : HomePageComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path:"reservation/liste" , component:ReservationListeComponent},
   {path:"reservation/:id" , component:ReservationDetailsComponent},
   {path:"foyer" , component:FoyerListeComponent},
+  {path:"foyer/:id" , component:FoyerDetailsComponent},
   {path:"login" , component:LoginPageComponent},
   {path:"demande/liste" , component: DemandeListeComponent},
   {path:"universiteDetail/:id", component:UniversiteDetailsComponent},

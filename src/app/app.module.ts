@@ -32,6 +32,8 @@ import { StepComponent } from './core/step/step.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatStepperModule} from "@angular/material/stepper";
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { FoyerDetailsComponent } from './core/foyer/foyer-details/foyer-details.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,8 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     MapComponent,
     ErrormsgComponent,
     ListeAgentComponent,
-    StepComponent
+    StepComponent,
+    FoyerDetailsComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -67,6 +70,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatPaginatorModule,
     MatStepperModule,
     MatInputModule,
     BrowserAnimationsModule,
