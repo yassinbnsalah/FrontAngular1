@@ -6,6 +6,8 @@ export class Foyer {
     nomFoyer!: string;
     capaciteFoyer!: number;
     etat!:boolean;
+    description!:string;
+    adresse!:string;
     createdAt!:Date;
     updatedAt!:Date;
     universite !: Universite ;
