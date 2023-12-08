@@ -1,0 +1,15 @@
+
+.form-control-a {
+  height: 200px; /* Adjust the desired height */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+
+.col-md-6 {
+  display: inline-block;
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}

@@ -1,11 +1,14 @@
+import {Image} from "./Image";
+
 export class Universite {
   idUniversite!: number;
   nomUniversite!: string;
-  adress!: string;
+  adresse!: string;
   statuts!: string;
   description!:string;
   email!:string;
   firstNameAgent!:string;
   lastNameAgent!:string;
-  logo!:File
+  imagebyte!:string ;
+  image?: Image | null;
 }

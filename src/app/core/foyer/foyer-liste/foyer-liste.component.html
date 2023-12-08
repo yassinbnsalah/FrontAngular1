@@ -1,0 +1,84 @@
+<app-navbar></app-navbar>
+<main id="main">
+  <!-- ======= Intro Single ======= -->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Liste des Foyer </h1>
+            <span class="color-text-a">DÃ©tails</span>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="#">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Properties Grid
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Intro Single-->
+
+
+  <!-- ======= Property Grid ======= -->
+  <section class="property-grid grid">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="grid-option">
+            <div class="row g-3 justify-content-end">
+              <div class="col-12">
+                <input type="text" [(ngModel)]="search" (input)="onSearch()" class="form-control text-start col-12" placeholder="Search by Name">
+              </div>              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4" *ngFor="let foyer of paginatedData">
+          <div *ngIf="foyer.etat === false" class="card-box-a card-shadow">
+            <div class="img-box-a">
+              <img style="width: 400px; height: 500px;" [src]="'data:' + foyer.image?.image_type + ';base64,' + foyer.imagebyte" alt="Foyer Image">
+            </div>
+            <div class="card-overlay">
+              <div class="card-overlay-a-content">
+                <div class="card-header-a">
+                  <h2 class="card-title-a">
+                    <a>{{foyer.nomFoyer}}</a>
+                  </h2>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a">Capacite : {{foyer.capaciteFoyer}}</span>
+                  </div>
+                  <a (click)="GoToFoyerDetail(foyer.idFoyer)" class="link-a">See more
+                    <span class="bi bi-chevron-right"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="totalItems > pageSize">
+        <div class="col-sm-12">
+          <mat-paginator [length]="totalItems"
+                         [pageSize]="pageSize"
+                         [pageSizeOptions]="pageSizeOptions"
+                         (page)="getPageData($event)"
+                         showFirstLastButtons>
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Property Grid Single-->
+</main>

@@ -5,6 +5,9 @@ export const environment = {
     ChamberBackendAPIS : "ChamberRestController",
     AuthentificationBackendURL : "auth/login",
     RegistrationBackendURL : "auth/register",
+    UserBackendURL : "UserRestController",
+    DemandeBackendURL : "DemandeRestController",
     BlocBackendAPIS : "BlocRestController",
+    FoyerBackendAPIS : "FoyerRestController"
 };
 
