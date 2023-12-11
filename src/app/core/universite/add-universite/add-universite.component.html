@@ -21,6 +21,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-12 col-lg-4">
           <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
@@ -36,7 +37,10 @@
       </div>
     </div>
   </section><!-- End Intro Single-->
-
+  <div style="display: flex; justify-content: center; align-items: center; height: 5px;  text-align: center;">
+  <img src="/assets/img/img.png">
+</div>
+  <br>
   <!-- ======= Contact Single ======= -->
   <section class="contact">
     <div class="container">
@@ -132,27 +136,26 @@
                       <label class="custom-file-label" for="logo">Select file...</label>
                     </div>
                   </div>
-                  <div *ngIf="imagePreview" class="mt-3">
+                  <div *ngIf="logoPreview" class="mt-3">
                     <label class="d-block">Logo Preview:</label>
                     <div class="text-center">
-
-                      <img [src]="imagePreview" alt="Image Preview" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
-
+                      <img [src]="logoPreview" alt="Logo Preview" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="justification">Choose justification:</label>
                     <div class="custom-file">
-                      <input type="file" id="justification" (change)="onJustificationSelected($event)" class="custom-file-input" >
-                      <label class="custom-file-label" for="justification">Select file...</label>
+                      <input type="file" id="justification" (change)="onJustificationSelected($event)" class="custom-file-input">
+                      <label class="custom-file-label" for="justification">{{ selectedJustification ? selectedJustification.name : 'Select file...' }}</label>
                     </div>
                   </div>
+
                   <div class="form-group">
                     <label for="attestation">Choose Attestation:</label>
                     <div class="custom-file">
                       <input type="file" id="attestation" (change)="onAttestationSelected($event)" class="custom-file-input" >
-                      <label class="custom-file-label" for="attestation">Select file...</label>
+                      <label class="custom-file-label" for="justification">{{ selectedAttestation ? selectedAttestation.name : 'Select file...' }}</label>
                     </div>
                   </div>
 

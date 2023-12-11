@@ -142,6 +142,14 @@
                   <div class="col-sm-12">
                     <div class="title-box-d section-t4">
                       <h3 class="title-d">Foyer Information</h3>
+                      <div class="property-description">
+                        <p class="description color-text-a">
+                        <div class="alert alert-success" role="alert" >
+                          <h3> Nom Foyer : <a href="#">{{selectedUniversite.foyer.nomFoyer}}</a></h3>
+                          Capacité Foyer : {{selectedUniversite.foyer.capaciteFoyer}} <br><br>
+                        <button type="button" class="btn btn-outline-success" (click)="GoToFoyerDetail(selectedUniversite.foyer.idFoyer)"> DETAILS </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

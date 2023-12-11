@@ -46,6 +46,7 @@ export class AddUniversiteComponent implements OnInit{
 
 
   imagePreview: SafeUrl | null = null;
+  logoPreview :SafeUrl | null = null;
   selectedFile: File | null = null;
   selectedLogo: File | null = null;
   selectedJustification: File | null = null;
@@ -54,6 +55,7 @@ export class AddUniversiteComponent implements OnInit{
 
   onLogoSelected(event: any) {
     this.selectedLogo = event.target.files[0];
+    this.showPreview(this.selectedLogo, true);
   }
 
   onJustificationSelected(event: any) {
@@ -86,20 +88,24 @@ export class AddUniversiteComponent implements OnInit{
     onFileSelected(event: any) {
         console.log('File selected:', event.target.files[0]);
         this.selectedFile = event.target.files[0];
-        this.showImagePreview(this.selectedFile);
+        this.showPreview(this.selectedFile);
     }
 
-    showImagePreview(file: File | null) {
-        console.log('Show image preview for file:', file);
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = (e: any) => {
-                this.imagePreview = this.sanitizer.bypassSecurityTrustUrl(e.target.result);
-            };
-            reader.readAsDataURL(file);
+  showPreview(file: File | null, isLogo: boolean = false) {
+    console.log(`Show preview for ${isLogo ? 'logo' : 'image'}:`, file);
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        if (isLogo) {
+          this.logoPreview = this.sanitizer.bypassSecurityTrustUrl(e.target.result);
+        } else {
+          this.imagePreview = this.sanitizer.bypassSecurityTrustUrl(e.target.result);
         }
+      };
+      reader.readAsDataURL(file);
     }
-
+  }
 
    onSubmit() {
 
