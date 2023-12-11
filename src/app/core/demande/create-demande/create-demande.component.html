@@ -9,7 +9,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="title-single">Creation du nouvelle demande</h1>
-                        <form method="post" role="form"  [formGroup]="demande"
+                        <div class="alert alert-success" role="alert" [hidden]="hideDemande">
+                           Merci pour Votre Demande ! Pour suivre Votre Demande . Tu peut consulter 
+                           Votre Dashboard 
+                          </div>
+                          
+                        <form method="post" role="form"  [formGroup]="demande" 
                         novalidate class="needs-validation">
                             <div class="row">
                                 <div class="col-md-6 mb-3">

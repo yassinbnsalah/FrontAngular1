@@ -1,6 +1,9 @@
 <app-navbar></app-navbar>
 <main id="main">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
 
   <!-- ======= Intro Single ======= -->
   <section class="intro-single">
@@ -23,7 +26,8 @@
         </div>
 
         <div class="col-md-12 col-lg-4">
-          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <nav aria-label="breadcrumb"
+            class="breadcrumb-box d-flex justify-content-lg-end">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <a href="index.html">Home</a>
@@ -44,87 +48,98 @@
   <!-- ======= Contact Single ======= -->
   <section class="contact">
     <div class="container">
-      <div class="row justify-content-center align-items-center"> <!-- Added justify-content-center and align-items-center -->
+      <div class="row justify-content-center align-items-center">
+        <!-- Added justify-content-center and align-items-center -->
         <div class="col-sm-12 section-t8">
           <div class="row justify-content-center">
             <div class="col-md-7">
-              <form [formGroup]="universiteForm" (ngSubmit)="onSubmit()" novalidate class="needs-validation">
+              <form [formGroup]="universiteForm" (ngSubmit)="onSubmit()"
+                novalidate class="needs-validation">
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input type="text" formControlName="nomUniversite" class="form-control"
-                             placeholder="University Name"
-                             [class.is-invalid]="universiteForm.get('nomUniversite')?.invalid
+                      <input type="text" formControlName="nomUniversite"
+                        class="form-control"
+                        placeholder="University Name"
+                        [class.is-invalid]="universiteForm.get('nomUniversite')?.invalid
                         && universiteForm.get('nomUniversite')?.dirty ">
 
-                      <div  class="invalid-feedback">
-                        <app-errormsg [err]="universiteForm.get('nomUniversite')"
-                                      [field]="'nomUniversite'"></app-errormsg>
+                      <div class="invalid-feedback">
+                        <app-errormsg
+                          [err]="universiteForm.get('nomUniversite')"
+                          [field]="'nomUniversite'"></app-errormsg>
 
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input type="text" formControlName="adresse" class="form-control"
-                             placeholder="Adresse"
-                             [class.is-invalid]="universiteForm.get('adresse')?.invalid
+                      <input type="text" formControlName="adresse"
+                        class="form-control"
+                        placeholder="Adresse"
+                        [class.is-invalid]="universiteForm.get('adresse')?.invalid
                         && universiteForm.get('adresse')?.dirty ">
 
-                      <div  class="invalid-feedback">
+                      <div class="invalid-feedback">
                         <app-errormsg [err]="universiteForm.get('adresse')"
-                                      [field]="'adresse'"></app-errormsg>
+                          [field]="'adresse'"></app-errormsg>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-12 mb-3">
                     <div class="form-group">
-                    <textarea type="text" formControlName="description" class="form-control"
-                              placeholder="Description"
-                              [class.is-invalid]="universiteForm.get('description')?.invalid
+                      <textarea type="text" formControlName="description"
+                        class="form-control"
+                        placeholder="Description"
+                        [class.is-invalid]="universiteForm.get('description')?.invalid
                                 && universiteForm.get('description')?.dirty">
- </textarea>
+                      </textarea>
                       <div class="invalid-feedback">
-                        <app-errormsg [err]="universiteForm.get('description')" [field]="'description'"></app-errormsg>
+                        <app-errormsg [err]="universiteForm.get('description')"
+                          [field]="'description'"></app-errormsg>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input name="email" type="email"  formControlName ="email"
-                             class="form-control "
-                             placeholder="Email"   [class.is-invalid]="universiteForm.get('email')?.invalid &&
-                                             universiteForm.get('email')?.dirty "
-                      />
+                      <input name="email" type="email" formControlName="email"
+                        class="form-control "
+                        placeholder="Email"
+                        [class.is-invalid]="universiteForm.get('email')?.invalid &&
+                                             universiteForm.get('email')?.dirty " />
                       <div class="invalid-feedback">
                         <app-errormsg [err]="universiteForm.get('email')"
-                                      [field]="'email'"></app-errormsg>
+                          [field]="'email'"></app-errormsg>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input name="firstNameAgent" type="firstNameAgent"  formControlName ="firstNameAgent"
-                             class="form-control"
-                             placeholder="firstNameAgent"   [class.is-invalid]="universiteForm.get('firstNameAgent')?.invalid &&
-                                             universiteForm.get('email')?.dirty "
-                      />
+                      <input name="firstNameAgent" type="firstNameAgent"
+                        formControlName="firstNameAgent"
+                        class="form-control"
+                        placeholder="firstNameAgent"
+                        [class.is-invalid]="universiteForm.get('firstNameAgent')?.invalid &&
+                                             universiteForm.get('email')?.dirty " />
                       <div class="invalid-feedback">
-                        <app-errormsg [err]="universiteForm.get('firstNameAgent')"
-                                      [field]="'firstNameAgent'"></app-errormsg>
+                        <app-errormsg
+                          [err]="universiteForm.get('firstNameAgent')"
+                          [field]="'firstNameAgent'"></app-errormsg>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6 mb-3">
                     <div class="form-group">
-                      <input name="lastNameAgent" type="lastNameAgent"  formControlName ="lastNameAgent"
-                             class="form-control "
-                             placeholder="lastNameAgent"   [class.is-invalid]="universiteForm.get('lastNameAgent')?.invalid &&
-                                             universiteForm.get('lastNameAgent')?.dirty "
-                      />
+                      <input name="lastNameAgent" type="lastNameAgent"
+                        formControlName="lastNameAgent"
+                        class="form-control "
+                        placeholder="lastNameAgent"
+                        [class.is-invalid]="universiteForm.get('lastNameAgent')?.invalid &&
+                                             universiteForm.get('lastNameAgent')?.dirty " />
                       <div class="invalid-feedback">
-                        <app-errormsg [err]="universiteForm.get('lastNameAgent')"
-                                      [field]="'lastNameAgent'"></app-errormsg>
+                        <app-errormsg
+                          [err]="universiteForm.get('lastNameAgent')"
+                          [field]="'lastNameAgent'"></app-errormsg>
                       </div>
                     </div>
                   </div>
@@ -132,30 +147,39 @@
                   <div class="form-group">
                     <label for="logo">Choose Logo:</label>
                     <div class="custom-file">
-                      <input type="file" id="logo" (change)="onLogoSelected($event)" class="custom-file-input" >
+                      <input type="file" id="logo"
+                        (change)="onLogoSelected($event)"
+                        class="custom-file-input">
                       <label class="custom-file-label" for="logo">Select file...</label>
                     </div>
                   </div>
                   <div *ngIf="logoPreview" class="mt-3">
                     <label class="d-block">Logo Preview:</label>
                     <div class="text-center">
+
                       <img [src]="logoPreview" alt="Logo Preview" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="justification">Choose justification:</label>
                     <div class="custom-file">
+
                       <input type="file" id="justification" (change)="onJustificationSelected($event)" class="custom-file-input">
                       <label class="custom-file-label" for="justification">{{ selectedJustification ? selectedJustification.name : 'Select file...' }}</label>
+
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label for="attestation">Choose Attestation:</label>
                     <div class="custom-file">
+
                       <input type="file" id="attestation" (change)="onAttestationSelected($event)" class="custom-file-input" >
                       <label class="custom-file-label" for="justification">{{ selectedAttestation ? selectedAttestation.name : 'Select file...' }}</label>
+
+
                     </div>
                   </div>
 
@@ -163,21 +187,27 @@
                     <label for="image" class="mr-2">Choose University Image :</label>
                     <div class="custom-file">
                       Choose an Image:
-                      <input type="file" id="image" (change)="onFileSelected($event)" class="custom-file-input" style="font-size: 16px; padding: 10px;" required>
-                      <label class="custom-file-label" for="image">Select file...</label>
+                      <input type="file" id="image"
+                        (change)="onFileSelected($event)"
+                        class="custom-file-input"
+                        style="font-size: 16px; padding: 10px;" required>
+                      <label class="custom-file-label" for="image">Select
+                        file...</label>
                     </div>
                   </div>
 
                   <div *ngIf="imagePreview" class="mt-3">
                     <label class="d-block">Image Preview:</label>
                     <div class="text-center">
-                      <img [src]="imagePreview" alt="Image Preview" class="img-thumbnail" style="max-width: 150px; max-height: 150px;">
+                      <img [src]="imagePreview" alt="Image Preview"
+                        class="img-thumbnail"
+                        style="max-width: 150px; max-height: 150px;">
                     </div>
                   </div>
 
                   <div class="col-md-12 text-center">
-                    <button type="submit" class="btn btn-a" [disabled]="universiteForm.invalid"
-                    >Create New Universite</button>
+                    <button type="submit" class="btn btn-a"
+                      [disabled]="universiteForm.invalid">Create New Universite</button>
                   </div>
                 </div>
               </form>

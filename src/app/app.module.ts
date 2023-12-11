@@ -1,3 +1,4 @@
+import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -30,9 +31,7 @@ import { ListeAgentComponent } from './core/universite/liste-agent/liste-agent/l
 import { StepComponent } from './core/step/step.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatStepperModule} from "@angular/material/stepper";
-import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideToastr } from 'ngx-toastr';
 
 @NgModule({
   declarations: [

@@ -30,13 +30,15 @@ const routes: Routes = [
   {path:"login" , component:LoginPageComponent},
   {path:"demande/liste" , component: DemandeListeComponent},
   {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
-  {path:"not", component:NotFoundComponent},
+ 
   {path:"chambres" , component:ChambresComponent},
   {path:"chambre-simple" , component:ChambreSimpleComponent},
   {path:"chambre-double" , component:ChambreDoubleComponent},
   {path:"chambre-triple" , component:ChambreTripleComponent},
 
-  {path:"step" , component:StepComponent}
+  {path:"step" , component:StepComponent},
+  {path:"map" , component:MapComponent},
+  {path:"**", component:NotFoundComponent},
 ];
 
 @NgModule({
