@@ -1,5 +1,5 @@
 /* Add this in your component CSS or global styles */
 .email-container {
-  display: flex;
+
   align-items: center; /* Align items vertically in the flex container */
 }

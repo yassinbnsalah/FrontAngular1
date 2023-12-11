@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UniversiteService } from "../../service/universite.service";
-import { ActivatedRoute } from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Universite} from "../../../model/Universite";
 @Component({
   selector: 'app-universite-details',
@@ -11,7 +11,7 @@ export class UniversiteDetailsComponent implements OnInit {
   selectedUniversite: any;
   id: number = 0; // Initialize to a default value
 
-  constructor(private universiteService: UniversiteService, private route: ActivatedRoute) {}
+  constructor(private universiteService: UniversiteService, private route: ActivatedRoute, private router:Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -28,4 +28,9 @@ export class UniversiteDetailsComponent implements OnInit {
       );
     });
   }
+
+  GoToFoyerDetail(id:any){
+      this.router.navigate(["foyer/", id])
+    }
+
 }
