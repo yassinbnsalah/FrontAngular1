@@ -1,6 +1,7 @@
 // chambres.component.ts
 
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Bloc } from 'src/app/model/Bloc';
 import { Chamber } from 'src/app/model/Chamber';
 import { ChamberService } from 'src/app/service/chamber.service';
@@ -15,14 +16,28 @@ export class ChambresComponent implements OnInit {
   searchTerm: string = '';
   chambers: Chamber[] = [];
   errorMessage: string = '';
+  selectedBloc: string = '';
+  blocs: Bloc[] = []; 
 
-
-
-  constructor(public chamberService: ChamberService) {}
+  constructor(
+    public   chamberService: ChamberService,
+  
+    private route: ActivatedRoute,
+    private router: Router
+    ) {}
 
   ngOnInit() {
-    this.loadChambers();
-
+    // Subscribe to changes in the route parameters
+    this.route.paramMap.subscribe(params => {
+      // Get the value of the 'nomBloc' parameter from the URL
+      this.selectedBloc = params.get('nomBloc') || '';
+      
+      // Load chambers based on the selected bloc
+      this.loadChambers();
+      
+      // Load all blocs
+      this.loadBlocs();
+    });
   }
 
   toggleHiddenSection() {
@@ -30,33 +45,17 @@ export class ChambresComponent implements OnInit {
   }
  
   searchChambers() {
-    if (!this.searchTerm) {
-      this.errorMessage = 'Veuillez entrer le nom du Bloc.';
+    if (!this.selectedBloc) {
+      this.errorMessage = 'Veuillez choisir un Bloc.';
       this.showHiddenSection = false;
       return;
     }
-
-    this.chamberService.checkBlocExistence(this.searchTerm).subscribe(
-      (blocExists) => {
-        if (blocExists) {
-          // Reset error message when the bloc is found
-          this.errorMessage = '';
-          
-          this.chamberService.getChambresByNomBloc(this.searchTerm).subscribe(
-            (data) => {
-              console.log(data);
-              this.chambers = data;
-              this.showHiddenSection = this.chambers.length > 0;
-            },
-            (error) => {
-              console.error(error);
-              this.showHiddenSection = false;
-            }
-          );
-        } else {
-          this.showHiddenSection = false;
-          this.errorMessage = `Le bloc "${this.searchTerm}" n'existe pas.`;
-        }
+  
+    this.chamberService.getChambresByNomBloc(this.selectedBloc).subscribe(
+      (data) => {
+        console.log(data);
+        this.chambers = data;
+        this.showHiddenSection = this.chambers.length > 0;
       },
       (error) => {
         console.error(error);
@@ -84,5 +83,22 @@ export class ChambresComponent implements OnInit {
         console.error(error);
       }
     );
+  }
+  loadBlocs() {
+    this.chamberService.getAllBlocs().subscribe(
+      (data) => {
+        console.log(data);
+        this.blocs = data;
+       
+      },
+      (error) => {
+        console.error(error);
+     
+      }
+    );
+  }
+  onBlocChange() {
+    // Update the URL with the selected bloc
+    this.router.navigate(['chambres', { nomBloc: this.selectedBloc }]);
   }
 }

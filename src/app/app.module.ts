@@ -25,6 +25,7 @@ import { ChambresComponent } from './core/Chambre/chambres/chambres.component';
 import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
+import { ChambreNonDisponibleComponent } from './shared/chambre not found/chambre-non-disponible/chambre-non-disponible.component';
 import { MapComponent } from './core/map/map.component';
 import { ErrormsgComponent } from './shared/errormsg/errormsg.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -69,6 +70,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ChambreSimpleComponent,
     ChambreDoubleComponent,
     ChambreTripleComponent,
+    ChambreNonDisponibleComponent,
     MapComponent,
     ProfileComponent,
     ErrormsgComponent,

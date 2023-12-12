@@ -16,6 +16,7 @@ import { ChambresComponent } from './core/Chambre/chambres/chambres.component';
 import { ChambreSimpleComponent } from './core/Chambre/chambre-simple/chambre-simple.component';
 import { ChambreDoubleComponent } from './core/Chambre/chambre-double/chambre-double.component';
 import { ChambreTripleComponent } from './core/Chambre/chambre-triple/chambre-triple.component';
+import { ChambreNonDisponibleComponent } from './shared/chambre not found/chambre-non-disponible/chambre-non-disponible.component';
 import {MapComponent} from "./core/map/map.component";
 import {StepComponent} from "./core/step/step.component";
 import { FoyerDetailsComponent } from './core/foyer/foyer-details/foyer-details.component';
@@ -53,13 +54,11 @@ const routes: Routes = [
   {path:"universiteDetail/:id", component:UniversiteDetailsComponent},
  
   {path:"chambres" , component:ChambresComponent},
-  {path:"chambre-simple" , component:ChambreSimpleComponent},
-  {path:"chambre-double" , component:ChambreDoubleComponent},
-  {path:"chambre-triple" , component:ChambreTripleComponent},
-
-  {path:"step" , component:StepComponent},
-  {path:"map" , component:MapComponent},
-  {path:"**", component:NotFoundComponent},
+  {path:":nomBloc/chambre-simple" , component:ChambreSimpleComponent},
+  {path:":nomBloc/chambre-double" , component:ChambreDoubleComponent},
+  {path:":nomBloc/chambre-triple" , component:ChambreTripleComponent},
+  {path:"chambre/notfound" , component:ChambreNonDisponibleComponent},
+  {path:"**", component:NotFoundComponent}
 ];
 
 @NgModule({
