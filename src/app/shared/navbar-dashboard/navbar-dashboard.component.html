@@ -1,43 +1,56 @@
-
-
 <nav class="navbar navbar-default navbar-trans navbar-expand-lg fixed-top">
-    <div class="container">
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
+  <div class="container">
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDefault"
+            aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <a class="navbar-brand text-brand" href="index.html">Estate<span class="color-b">Agency</span></a>
 
-      <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
-        <ul class="navbar-nav">
+    <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
+      <ul class="navbar-nav">
 
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/home">Home</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/home">Home</a>
+        </li>
 
-          <li class="nav-item">
-            <a class="nav-link " routerLink="/reservation/liste">Reservations</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/reservation/liste">Reservations</a>
+        </li>
 
-          
-          <li class="nav-item">
-            <a class="nav-link " routerLink="/demande/liste">demandes</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link " routerLink="#">Profile</a>
-          </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/demande/liste">demandes</a>
+        </li>
 
-         
-        </ul>
-      </div>
-      
-    
-      <button 
-      class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" 
-      routerLink="/reservation/liste">
-        {{ CurrentUser.email}}
-      </button>
+
+      </ul>
     </div>
-  </nav>
+
+
+    <button
+      class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
+      routerLink="/profile">
+      {{ CurrentUser.email}}
+    </button>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" style="margin-left: 10px">
+      <button routerLink="/modifyProfile" mat-menu-item>
+        <mat-icon>settings icon</mat-icon>
+        <span>settings</span>
+      </button>
+      <button mat-menu-item routerLink="/changepassword">
+        <mat-icon >lock open icon</mat-icon>
+        <span>change password</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon >directions walk icon</mat-icon>
+        <span>deconnexion</span>
+      </button>
+    </mat-menu>
+
+  </div>
+</nav>

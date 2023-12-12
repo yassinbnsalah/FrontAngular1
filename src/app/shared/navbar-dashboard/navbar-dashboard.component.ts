@@ -8,20 +8,28 @@ import { StorageService } from 'src/app/AuthServices/storage.service';
   styleUrls: ['./navbar-dashboard.component.css']
 })
 export class NavbarDashboardComponent {
-  Connected = false; 
-  CurrentUser : any; 
+  Connected = false;
+  CurrentUser : any;
   constructor(private storage : StorageService,
     private router : Router){}
   ngOnInit(): void {
     console.log(this.storage.isLoggedIn());
-    
+
     if(this.storage.isLoggedIn()){
       this.Connected = true
       this.CurrentUser = this.storage.getUser();
       console.log(this.CurrentUser);
-      
+
     }else{
       this.router.navigate(['/home'])
     }
   }
+
+
+  logout(){
+    this.router.navigate(['/home'])
+    this.storage.clean()
+
+  }
+
 }

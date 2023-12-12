@@ -12,7 +12,9 @@ export class UniversiteDetailsComponent implements OnInit {
   id: number = 0; // Initialize to a default value
 
   constructor(private universiteService: UniversiteService, private route: ActivatedRoute, private router:Router) {}
-
+  GoToFoyerDetails(id:any){
+    this.router.navigate(['foyer/'+id])
+  }
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = +params['id']; // Convert to number using the '+' prefix

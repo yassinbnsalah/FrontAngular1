@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<app-navbar-dashboard></app-navbar-dashboard>
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Modifier-Profile</h1>
+          <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="../../home-page/home-page.component.html">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Modifier-Profile
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="intro-single" style="margin-top: 0px">
+  <div class="container">
+    <form *ngIf="myForm" [formGroup]="myForm">
+      <mat-accordion class="example-headers-align">
+        <!-- Personal data -->
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Personal data
+            </mat-panel-title>
+            <mat-panel-description>
+              Type your name and age
+              <mat-icon>account_circle</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <div class="form-section">
+
+            <mat-form-field>
+              <mat-label>Nom</mat-label>
+              <input matInput formControlName="nomEt">
+              <mat-error *ngIf="myForm.get('nomEt')?.hasError('required')">
+                Nom is required.
+              </mat-error>
+              <mat-error *ngIf="myForm.get('nomEt')?.hasError('pattern')">
+                Nom should only contain letters and spaces.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Prenom</mat-label>
+              <input matInput formControlName="prenomEt">
+              <mat-error *ngIf="myForm.get('prenomEt')?.hasError('required')">
+                Prenom is required.
+              </mat-error>
+              <mat-error *ngIf="myForm.get('prenomEt')?.hasError('pattern')">
+                Prenom should only contain letters and spaces.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>CIN</mat-label>
+              <input matInput type="number" formControlName="cin">
+              <mat-error *ngIf="myForm.get('cin')?.hasError('required')">
+                CIN is required.
+              </mat-error>
+              <mat-error *ngIf="myForm.get('cin')?.hasError('pattern')">
+                CIN should have exactly 8 numeric characters.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Ecole</mat-label>
+              <input matInput formControlName="ecole">
+              <mat-error *ngIf="myForm.get('ecole')?.hasError('required')">
+                Ecole is required.
+              </mat-error>
+            </mat-form-field>
+
+            <mat-action-row>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </div>
+        </mat-expansion-panel>
+
+
+        <!-- Destination -->
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Account info
+            </mat-panel-title>
+            <mat-panel-description>
+              Your account infos
+              <mat-icon>lock</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="form-section">
+
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="Email" [value]="user.email" [disabled]="true">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Enabled</mat-label>
+              <input matInput formControlName="Enabled" [value]="user.enabled ? 'Enabled' : 'Not enabled'"
+                     [disabled]="true">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Role</mat-label>
+              <input matInput formControlName="Role" [value]="user.role" [disabled]="true">
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Joined at</mat-label>
+              <input matInput formControlName="Role" [value]="user.createdAt" [disabled]="true">
+            </mat-form-field>
+
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">Next</button>
+            </mat-action-row>
+          </div>
+        </mat-expansion-panel>
+
+        <!-- Day of the trip -->
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Date of birth
+            </mat-panel-title>
+            <mat-panel-description>
+              Inform the date of birth
+              <mat-icon>date_range</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="form-section">
+            <mat-form-field>
+              <mat-label>Date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dateNaissance">
+              <mat-error *ngIf="myForm.get('dateNaissance')?.hasError('required')">
+                Date of Birth is required.
+              </mat-error>
+              <mat-error *ngIf="myForm.get('dateNaissance')?.hasError('futureDate')">
+                Date of Birth cannot be in the future.
+              </mat-error>
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-action-row>
+              <button mat-button color="warn" (click)="prevStep()">Previous</button>
+              <button mat-button color="primary" (click)="nextStep()">End</button>
+            </mat-action-row>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <div class="center-button">
+        <div class="col-md-12 text-center">
+          <button class="btn btn-a" (click)="updateUser()" [disabled]="!isFormValid">UPDATE</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+</body>
+</html>

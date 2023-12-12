@@ -24,7 +24,6 @@ export class FoyerDetailsComponent {
     this.foyerService.getFoyerByID(this.activatedRoute.snapshot.params['id']).subscribe((d) => {
       console.log(d);
       this.foyer = d ;
-
     })
   }
   GetBloc(){

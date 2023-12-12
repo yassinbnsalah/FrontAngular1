@@ -1,10 +1,16 @@
 export class User {
-    sub!: string;
-    exp!: number;
-    email!: string;
-    role!: string;
-    nomEt !: string;
-    prenomEt!: string
-    cin!: number;
-  }
-  
+  sub!: string;
+  exp!: number;
+  email!: string;
+  role!: string;
+
+  id !: number ;
+  nomEt !: string;
+  prenomEt!: string
+  cin!: number;
+  ecole!: string;
+  dateNaissance!: Date;
+  enabled!:boolean;
+  createdAt!:string;
+  imagebyte!:string;
+}

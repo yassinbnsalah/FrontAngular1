@@ -1,3 +1,4 @@
+import { MatMenuModule } from '@angular/material/menu';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +14,7 @@ import { AddUniversiteComponent } from './core/universite/add-universite/add-uni
 import {FormsModule} from "@angular/forms";
 import { HttpClientModule } from '@angular/common/http';
 import { LoginPageComponent } from './core/auth/login-page/login-page.component';
-import { NavbarDashboardComponent } from './shared/navbar-dashboard/navbar-dashboard.component';
+
 import { ReservationListeComponent } from './core/reservation/reservation-liste/reservation-liste.component';
 import { ReservationDetailsComponent } from './core/reservation/reservation-details/reservation-details.component';
 import { UniversiteDetailsComponent } from './core/universite/universite-details/universite-details.component';
@@ -34,6 +35,18 @@ import {MatStepperModule} from "@angular/material/stepper";
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { FoyerDetailsComponent } from './core/foyer/foyer-details/foyer-details.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { RegisterComponent } from './core/register/register.component';
+import { ModifyProfileComponent } from './core/profile/modify-profile/modify-profile.component';
+import { changePasswordComponent } from './core/profile/change-password/change-password.component';
+import { forgetPasswordComponent } from './core/forget-password/forget-password.component';
+import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
+import { NavbarDashboardComponent } from './shared/navbar-dashboard/navbar-dashboard.component';
+import {MatExpansionModule} from '@angular/material/expansion'; 
+import { ProfileComponent } from './core/profile/profile/profile.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -57,13 +70,22 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ChambreDoubleComponent,
     ChambreTripleComponent,
     MapComponent,
+    ProfileComponent,
     ErrormsgComponent,
     ListeAgentComponent,
     StepComponent,
-    FoyerDetailsComponent
+    FoyerDetailsComponent,
+    RegisterComponent,
+    forgetPasswordComponent,
+    changePasswordComponent,
+    ModifyProfileComponent
   ],
   imports: [
-    ReactiveFormsModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatIconModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -71,9 +93,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
+    MatButtonModule ,
     MatStepperModule,
     MatInputModule,
-    BrowserAnimationsModule,
+    MatSnackBarModule,
     ToastrModule.forRoot()
   ],
 

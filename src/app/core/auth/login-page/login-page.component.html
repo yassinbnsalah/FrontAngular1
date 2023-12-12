@@ -1,130 +1,74 @@
-<main id="main">
-    <!-- ======= Intro Single ======= -->
-    <section class="intro-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 col-lg-8">
-            <div class="title-single-box">
-              <h1 class="title-single">Authentification</h1>
-              <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
-            </div>
-          </div>
-          <div class="col-md-12 col-lg-4">
-            <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  Contact
-                </li>
-              </ol>
-            </nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<app-navbar></app-navbar>
+  <!-- ======= Intro Single ======= -->
+  <section class="intro-single">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-lg-8">
+          <div class="title-single-box">
+            <h1 class="title-single">Authentification</h1>
+            <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
           </div>
         </div>
+        <div class="col-md-12 col-lg-4">
+          <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Authentification
+              </li>
+            </ol>
+          </nav>
+        </div>
       </div>
-    </section><!-- End Intro Single-->
+    </div>
+  </section><!-- End Intro Single-->
 
-    <!-- ======= Contact Single ======= -->
-    <section class="contact">
-      <div class="container">
-        <div class="row">
-         
-          <div class="col-sm-12 section-t8">
-            <div class="row">
-              <div class="col-md-6">
-                <h1 class="title-single">Sign In</h1>
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                  <div class="row">
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input type="text" name="email"
-                        [(ngModel)]="credentials.email" class="form-control form-control-lg form-control-a" placeholder="Your Name" required>
-                      </div>
-                    </div>
-                    <br>
-                    <div class="col-md-6 mb-3">
-                      <div class="form-group">
-                        <input name="email" type="password" 
-                        [(ngModel)]="credentials.password" class="form-control form-control-lg form-control-a" 
-                        placeholder="Your Password" required>
-                      </div>
-                    </div>
-                    
-                   
-                    <div class="col-md-12 my-3">
-                      <div class="mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                      </div>
-                    </div>
+  <!-- ======= Contact Single ======= -->
+  <section class="contact">
+    <div class="container">
+      <div class="row">
 
-                    <div class="col-md-12 text-center">
-                      <button (click)="login()" class="btn btn-a">LOGIN</button>
-                    </div>
+        <div class="col-sm-12 section-t8">
+          <div class="row justify-content-center"> <!-- Center the form -->
+
+            <div class="col-md-6 mb-3">
+              <h1 class="title-single text-center">Sign In</h1>
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="form-group" style="margin-bottom: 20px">
+                  <input type="text" name="email" [(ngModel)]="credentials.email" class="form-control form-control-lg form-control-a" placeholder="Your Name" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 20px">
+                  <input name="email" type="password" [(ngModel)]="credentials.password" class="form-control form-control-lg form-control-a" placeholder="Your Password" required>
+                </div>
+                <div class="row">
+                  <div class="d-flex justify-content-between">
+                    <button mat-button routerLink="/auth/forgetPassword" >Forgot Password?</button>
+                    <button mat-button routerLink="/auth/register" >Sign up instead</button>
                   </div>
-                </form>
-              </div>
-              <div class="col-md-6">
-                <h1 class="title-single">Sign up</h1>
-                <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                    <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                          <input type="text" name="FirstName"  [(ngModel)]="credentailsRegistration.nomEt"
-                          class="form-control form-control-lg form-control-a" placeholder="FirstName" required>
-                        </div>
-                      </div><br>
-                      <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                          <input type="text" name="LastName" [(ngModel)]="credentailsRegistration.prenomEt"
-                          class="form-control form-control-lg form-control-a" placeholder="LastName" required>
-                        </div>
-                      </div><br>
-                      <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                          <input type="text" name="Ecole" [(ngModel)]="credentailsRegistration.ecole"
-                          class="form-control form-control-lg form-control-a" placeholder="Ecole" required>
-                        </div>
-                      </div><br>
-                      <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                          <input type="text" name="Cin"  [(ngModel)]="credentailsRegistration.cin"
-                          class="form-control form-control-lg form-control-a" placeholder="Cin" required>
-                        </div>
-                      </div><br>
-                      <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                          <input name="email" type="email" [(ngModel)]="credentailsRegistration.email"
-                          class="form-control form-control-lg form-control-a" placeholder="Your Email" required>
-                        </div>
-                      </div><br>
-                      <div class="col-md-6 mb-3">
-                        <div class="form-group">
-                          <input name="Password" type="Password" [(ngModel)]="credentailsRegistration.password"
-                          class="form-control form-control-lg form-control-a" placeholder="Your Password" required>
-                        </div>
-                      </div><br>
-                     
-                      <div class="col-md-12 my-3">
-                        <div class="mb-3">
-                          <div class="loading">Loading</div>
-                          <div class="error-message"></div>
-                          <div class="sent-message">Your message has been sent. Thank you!</div>
-                        </div>
-                      </div>
-  
-                      <div class="col-md-12 text-center">
-                        <button (click)="register()" class="btn btn-a">create</button>
-                      </div>
-                    </div>
-                  </form>
-              </div>
+                </div>
+                <div class="text-center" style="margin-bottom: 50px">
+                  <button (click)="login()" class="btn btn-a">LOGIN</button>
+                </div>
+              </form>
             </div>
+
           </div>
         </div>
       </div>
-    </section><!-- End Contact Single-->
+    </div>
+  </section><!-- End Contact Single-->
 
-  </main><!-- End #main -->
+</body>
+</html>

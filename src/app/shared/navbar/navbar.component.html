@@ -17,10 +17,6 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " routerLink="/about">About us</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link " routerLink="/universites">Universités</a>
         </li>
 
@@ -37,15 +33,15 @@
       </ul>
     </div>
     
-    <button *ngIf="Connected == false" 
-    class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" 
-    routerLink="/login">
+    <button *ngIf="Connected == false"
+    class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
+    routerLink="/auth/login">
       SignIn/SignUp
     </button>
-    <button *ngIf="Connected == true" 
-    class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse" 
-    routerLink="/reservation/liste">
-      {{ CurrentUser.email}}
+    <button *ngIf="Connected == true"
+    class="btn btn-b-n navbar-toggle-box navbar-toggle-box-collapse"
+    routerLink="/profile">
+      {{ CurrentUser.email }}
     </button>
   </div>
 </nav>

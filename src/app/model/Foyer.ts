@@ -3,6 +3,7 @@ import { Universite } from "./Universite";
 
 export class Foyer {
     idFoyer !: number;
+    description !:string ;
     nomFoyer!: string;
     capaciteFoyer!: number;
     etat!:boolean;

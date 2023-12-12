@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<app-navbar-dashboard></app-navbar-dashboard>
+
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">My-profile</h1>
+          <span class="color-text-a">Aut voluptas consequatur unde sed omnis ex placeat quis eos. Aut natus officia corrupti qui autem fugit consectetur quo. Et ipsum eveniet laboriosam voluptas beatae possimus qui ducimus. Et voluptatem deleniti. Voluptatum voluptatibus amet. Et esse sed omnis inventore hic culpa.</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="../../../../index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              My-profile
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <section class="section about-section gray-bg" id="about">
+      <div class="container">
+        <div class="row align-items-center flex-row-reverse">
+          <div class="col-lg-6">
+            <div class="card-body px-4 py-5 px-md-5">
+            <div class="about-text go-to">
+              <h3 class="dark-color">About me</h3>
+              <h6 class="theme-color lead">#Role : {{ user.role }}</h6>
+              <div class="row about-list">
+                <div class="col-md-6">
+                  <div class="media">
+                    <label>Nom :</label>
+                    <p>{{ user.nomEt }}</p>
+                  </div>
+                  <div class="media">
+                    <label>Etat du compte :</label>
+                    <p>{{ user.enabled ? 'Active' : 'Non active' }}</p>
+                  </div>
+                  <div class="media">
+                    <label>Date de naissance :</label>
+                    <p>{{ user.dateNaissance }}</p>
+                  </div>
+                  <div class="media">
+                    <label>Numero CIN :</label>
+                    <p>{{ user.cin }}</p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="media">
+                    <label>Prenom :</label>
+                    <p>{{ user.prenomEt }}</p>
+                  </div>
+                  <div class="media">
+                    <label>E-mail</label>
+                    <p>{{ user.email }}</p>
+                  </div>
+                  <div class="media">
+                    <label>Membre depuis :</label>
+                    <p>{{ user.createdAt }}</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="about-avatar">
+              <img class="profile-image" [src]="'data:' + ';base64,' + user.imagebyte" alt="user image" alt="">
+
+              <div class="col-md-12 text-center">
+                <button style="margin-top:20px;margin-right: 320px " class="btn btn-a" (click)="onMiniFabClick()">Picture</button>
+              </div>
+              <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+</body>
+</html>

@@ -47,10 +47,10 @@ export class AddUniversiteComponent implements OnInit{
 
   imagePreview: SafeUrl | null = null;
   logoPreview :SafeUrl | null = null;
-  selectedFile: File | null = null;
-  selectedLogo: File | null = null;
-  selectedJustification: File | null = null;
-  selectedAttestation: File | null = null;
+  selectedFile!: File ;
+  selectedLogo!: File ;
+  selectedJustification!: File ;
+  selectedAttestation!: File ;
 
 
   onLogoSelected(event: any) {
@@ -66,7 +66,6 @@ export class AddUniversiteComponent implements OnInit{
     this.selectedAttestation = event.target.files[0];
   }
   uploadImage(idUniversite: any) {
-    if (this.selectedFile) {
       console.log("ENTER");
       let formData = new FormData();
       formData.append('file', this.selectedFile, this.selectedFile.name);
@@ -82,7 +81,6 @@ export class AddUniversiteComponent implements OnInit{
           console.log(data);
         }
       );
-    }
   }
 
     onFileSelected(event: any) {
